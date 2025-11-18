@@ -20,6 +20,20 @@ const Instruction = [
 ];
 
 const PersonalInfo: React.FC<Props> = ({ values, setFieldValue }) => {
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const selectedFile = event.target.files?.[0];
+        if (selectedFile) {
+            setFieldValue("profilePicture", selectedFile);
+        }
+    };
+
+    const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
+        event.preventDefault();
+        const droppedFile = event.dataTransfer.files?.[0];
+        if (droppedFile) {
+            setFieldValue("profilePicture", droppedFile);
+        }
+    };
     return (
         <div className="personal-info-card p-3">
 
@@ -30,9 +44,34 @@ const PersonalInfo: React.FC<Props> = ({ values, setFieldValue }) => {
                             <span className="heading-icon">👤</span> Please Enter the distributor personal Information
                         </legend>
                         <Row>
-                            <Col xs={12} md={2} className="d-flex justify-content-center"> <div className="avatar-wrapper">
-                                <Image src={person} roundedCircle fluid alt="avatar" />
-                            </div>
+                            <Col xs={12} md={2} className="d-flex justify-content-center">
+                                {/* <div className="avatar-wrapper"> */}
+                                {/*  */}
+                                <div
+                                    className={`document-uploader`}
+                                    onDrop={handleDrop}
+                                    onDragOver={(e) => e.preventDefault()}
+                                >
+                                    <input
+                                        type="file"
+                                        id="profilePicture"
+                                        name="profilePicture"
+                                        hidden
+                                        onChange={handleFileChange}
+                                    />
+
+                                    <div className={`d-grid rounded align-items-center justify-content-center  ${values.profilePicture ? "border rounded-circle" : "border-0 "}  p-3 py-3 text-center cursor-pointer`}
+                                        onClick={() => document.getElementById("profilePicture")?.click()}
+                                    >
+                                        {
+                                            values.profilePicture ?
+                                                <Image src={URL.createObjectURL(values.profilePicture)} alt="preview" className='img-fluid' style={{ width: "100px", height: "100px", objectFit: "contain", opacity: 0.7 }}
+                                                /> :
+                                                <Image src={person} fluid alt="avatar" />
+                                        }
+                                    </div>
+                                </div>
+                                {/* </div> */}
                             </Col>
                             <Col md={10} sm={12}>
                                 <Row className="g-3  mt-1">

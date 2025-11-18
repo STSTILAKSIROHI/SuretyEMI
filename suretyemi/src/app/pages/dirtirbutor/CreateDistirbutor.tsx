@@ -47,7 +47,7 @@ const CreateDistirbutor = () => {
                         // console.log("error", errors)
                         return (
                             <Form className='px-4 mt-4 '>
-                                <h6> <MdOutlineCreateNewFolder /> Distirbutor <span className='primary' > KYC Process</span></h6>
+                                {/* <h6> <MdOutlineCreateNewFolder /> Distirbutor <span className='primary' > KYC Process</span></h6> */}
                                 <Row>
                                     <Col sm={9}>
                                         <Step steps={steps} stepNumber={currentStep} Type="T" />

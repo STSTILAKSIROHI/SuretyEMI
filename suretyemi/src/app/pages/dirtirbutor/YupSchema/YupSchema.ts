@@ -21,9 +21,7 @@ export const personalinfo = Yup.object().shape({
     .matches(/^\d{12}$/, "Aadhaar must be 12 digits")
     .required("Aadhaar number is required"),
 
-  pan: Yup.string()
-    .matches(/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/, "Enter a valid PAN number")
-    .required("PAN number is required"),
+  pan: Yup.string().required("PAN number is required"),
 });
 
 
