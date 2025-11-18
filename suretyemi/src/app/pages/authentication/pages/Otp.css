@@ -1,0 +1,81 @@
+.reset-heading {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.reset-heading span {
+  color: orange;
+}
+
+.verify-subtitle {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.reset-description {
+  text-align: center;
+  font-size: 13px;
+}
+
+.otp-input-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.otp-input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.resend-code {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 13px;
+}
+
+.resend-code .text-secondary {
+  margin-right: 5px;
+}
+
+.password-group {
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.password-icon-toggle {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  right: 10px;
+  top: 28px;
+  cursor: pointer;
+  color: #666;
+}
+
+.error-message {
+  color: red;
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+.verify-button {
+  width: 100%;
+  height: 35px;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  background-color: var(--primaryColor);
+  color: white;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 12px;
+}

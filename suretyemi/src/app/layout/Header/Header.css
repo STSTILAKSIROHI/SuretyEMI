@@ -1,0 +1,170 @@
+/* ============================
+   Header Layout
+============================ */
+.header {
+  background-color: var(--ComponentBgColor);
+  padding: 0px 10px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 18%;
+  width: calc(100% - 189px);
+  z-index: 99;
+}
+
+/* Sidebar (if applicable) */
+.sidebar-wrapper2 {
+  position: fixed;
+  left: -201px;
+  top: 0;
+  height: 100vh;
+  z-index: 999;
+  padding: 0px 10px;
+  width: 200px !important;
+  transition: width 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+  will-change: width;
+}
+
+/* Header alignment */
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  margin-left: auto;
+}
+
+/* ============================
+   Icon Buttons
+============================ */
+.dark-icon,
+.message-icon,
+.notification-icon,
+.sidebar-open-icon {
+  width: 34px;
+  height: 34px;
+  background-color: var(--slate500Color20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 5px;
+  transition: background-color 0.2s ease-in;
+  cursor: pointer;
+}
+
+/* ============================
+   Profile Avatar
+============================ */
+.profile-icon img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ================================= */
+.profile-icon {
+  margin-left: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ============================
+   Profile Dropdown
+============================ */
+.profile-menu-section {
+  position: absolute;
+  top: 55px;
+  right: 12px;
+  min-width: 220px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: var(--ComponentBgColor);
+  box-shadow: 0 1px 6px rgba(146, 146, 146, 0.2);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+.profile-menu-section.dropdown-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional Mobile Dropdown */
+.MobileProfile-section {
+  right: 16px;
+  top: 60px;
+  width: 90%;
+}
+
+/* ============================
+   List and Hover Effects
+============================ */
+.profile-menu-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-menu-section li {
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.profile-menu-section li:hover {
+  background-color: #f1f5f9;
+}
+
+.profile-menu-section li svg {
+  margin-right: 8px;
+}
+
+/*============================
+   Utility Classes
+============================ */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.hover-effect:hover {
+  background-color: #ddeeff;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.hover-effect:hover {
+  background-color: #ddeeff;
+  cursor: pointer;
+}
+
+.headerWidth {
+  width: calc(100% - 21px);
+  margin-left: 30px;
+}
+
+.headerIcon {
+  height: 30px;
+  padding: 1px 7px 1px 7px !important;
+  background-color: rgba(0, 72, 181, 0.07) !important;
+}
+
+.toggleicon {
+  transition: transform .4s ease-in-out;
+}
+.toggleicon:hover {
+  transform: rotate(360deg);
+  cursor: pointer;
+  color: var(--lightprimaryColor);
+}

@@ -1,0 +1,329 @@
+:root {
+  /* --primaryColor: #4b6bc3;
+  --lightprimaryColor: #adbaffd0; */
+
+  --primaryColor: #F07E31;
+  --lightprimaryColor: #adbaffd0;
+  --primaryColor50: #ee3f2450;
+  --primaryColor75: #ee3f2475;
+  --primaryColor40: #ee3f2440;
+  --successColor: #28c76f;
+  --successColor30: #28c76f30;
+  --successColor40: #28c76f40;
+  --dangerColor: #ba3648;
+  --dangerColor30: #ba364830;
+  --dangerColor40: #ba364840;
+  --infoColor: #00cfe8;
+  --infoColor40: #00cfe840;
+  --waringColor: #f2be3a;
+  --waringColor40: #f2be3a40;
+  --slate50Color: #f8fafc;
+  --slate50Color50: #f8fafc50;
+  --slate500Color: rgb(80 90 102);
+  --slate500Color40: #505a6640;
+  --slate500Color20: #86868620;
+  --slate600Color: rgb(71 85 105);
+  --slate700Color: rgb(51 65 85);
+  --whiteColor: #fff;
+  --blueColor: #477bf9;
+  --blueOpcityColor: #477bf930;
+  --bgColor: #ffffff;
+  --ComponentBgColor: #fff;
+  --theader: #f8f8f8;
+  --tw-shadow: 0 0 #0000;
+  --input-border: #496989;
+  --main-black: #000;
+  --color-danger: #ed1000;
+  --primaryBTN: #2f4b97;
+  --primaryButton: #0d6efd;
+  --successButton: #19a262;
+  --dangerButton: #cf4351;
+  --darkButton: #212529;
+  --lightButton: #f8f9fa;
+  --silverButton: #aaaaaa;
+  --transparentButton: white;
+  --SuccessTrans: #3ec9292a;
+
+}
+
+body {
+  margin: 0;
+  font-family: "Lexend", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bgColor);
+}
+
+.label-14 {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.bg-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.primary {
+  color: var(--primaryColor) !important;
+}
+
+.secondary {
+  color: var(--slate500Color);
+}
+
+.bg-light {
+  background-color: rgb(243, 247, 255) !important;
+}
+
+p {
+  font-size: 0.7rem !important;
+}
+
+.text-md {
+  font-size: 0.75rem !important;
+  font-weight: 500;
+}
+
+.text-sm {
+  font-size: 0.6875rem !important;
+  font-weight: 500;
+}
+
+.text-xs {
+  font-size: 0.6rem;
+  line-height: calc(1 / 0.75);
+}
+
+.text-lg {
+  font-size: 0.9rem !important;
+}
+
+.text-xl {
+  font-size: 1.1rem !important;
+}
+
+.text-heading {
+  font-size: 1.2rem !important;
+}
+
+.text-light {
+  color: rgb(149, 149, 149) !important;
+}
+
+.text-primary {
+  color: var(--primaryColor) !important;
+  font-weight: 500 !important;
+}
+
+/* login page css */
+
+.login-gradient {
+  background: linear-gradient(to top, #FDF5F3 0%, #ffffff 100%);
+}
+
+
+/* Page background */
+.auth-page-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* page background */
+  padding: 30px;
+}
+
+.auth-page-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url(https://img.freepik.com/free-photo/corporate-professional-project-talking-accountant-workplace_1418-31.jpg?t=st=1763445905~exp=1763449505~hmac=88f44ed0ba4a2d0a26b9b2cc19422550fb46931d5d59a16a78e9751d12cf8439&w=1480);
+  background-color: var(--primaryColor);
+  background-size: cover;
+  filter: blur(2px);
+  opacity: 0.8;
+  z-index: -1;
+}
+
+
+
+/* Outer rounded card that holds left+right */
+.auth-outer-card {
+  width: 100%;
+  max-width: 1200px;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* decorative circle top-right */
+.auth-decor-circle {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #f7721954, rgba(255, 255, 255, 0.06));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* LEFT PANEL */
+.left-panel {
+  background: linear-gradient(200deg, #f07d3138, rgba(248, 245, 255, 0.98));
+  padding: 48px;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-panel-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* container inside left panel to space items */
+.left-content {
+  width: 92%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* optional small logo */
+.left-top-logo {
+  align-self: flex-start;
+}
+
+/* tagline bubble */
+.left-tagline {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 40px;
+  padding: 10px 18px;
+  font-size: 13px;
+  color: #444;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(50, 50, 60, 0.04);
+}
+
+/* Illustration area (centered, with subtle blur/opacity to match screenshot) */
+.left-illustration {
+  margin-top: 12px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 18px;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.25));
+}
+
+/* Slight blur + reduced opacity to mimic soft screenshot */
+.left-illustration img {
+  width: 95%;
+  height: auto;
+  filter: blur(1px) saturate(105%);
+  opacity: 0.95;
+  border-radius: 12px;
+}
+
+/* RIGHT PANEL (form) */
+.right-panel {
+  padding: 48px 36px;
+  position: relative;
+  z-index: 2;
+  /* above decorative circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form wrapper that constrains width and centers content */
+.auth-form-wrap {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+/* Brand + title */
+.brand {
+  margin-bottom: 8px;
+}
+
+.auth-title {
+  color: #3740ff;
+  /* blue seen in screenshot */
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.auth-subtitle {
+  color: #666;
+  margin-bottom: 18px;
+}
+
+/* children area where form inputs go */
+.auth-children {
+  margin-top: 12px;
+}
+
+/* style for the divider under the logo if needed */
+.login-logo-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.02));
+  margin: 14px 0;
+  border-radius: 2px;
+}
+
+/* Footer small text */
+.auth-footer-text {
+  margin-top: 22px;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Responsiveness tweaks */
+@media (max-width: 991px) {
+  .auth-decor-circle {
+    display: none;
+  }
+
+  .left-panel {
+    display: none;
+  }
+
+  .auth-outer-card {
+    border-radius: 12px;
+  }
+
+  .right-panel {
+    padding: 28px 20px;
+  }
+}
+
+.filter-dot {
+  position: absolute;
+  top: 1px;
+  right: -1px;
+  width: 6px;
+  height: 6px;
+  background-color: var(--primaryColor);
+  border-radius: 50%;
+}
+
+input::placeholder {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #9b9b9b !important;
+}
