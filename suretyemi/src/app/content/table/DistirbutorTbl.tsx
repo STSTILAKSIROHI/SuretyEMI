@@ -135,15 +135,8 @@ const DistirbutorTbl: React.FC<OrgTableProps> = ({ data, columns }) => {
                         {/* --- 4. Action Column (Icons) --- */}
                         {child.column.field === 'actions' && (
                             <div className="d-flex align-items-center justify-content-center gap-2">
-                                <button className="btn btn-sm btn-light text-primary rounded-circle p-2" title="View">
-                                    <HiOutlineEye size={16} />
-                                </button>
-                                <button className="btn btn-sm btn-light text-info rounded-circle p-2" title="Edit">
-                                    <HiOutlinePencil size={16} />
-                                </button>
-                                <button className="btn btn-sm btn-light text-danger rounded-circle p-2" title="Delete">
-                                    <HiOutlineTrash size={16} />
-                                </button>
+                                <CustomButton type='button' variant='transparent' text={"view"} />
+                                <CustomButton type='button' variant='transparent' text={"edit"} />
                             </div>
                         )}
 
