@@ -36,21 +36,10 @@ interface NavmenuProps {
   isHovered: boolean;
 }
 
-/**
- * Navmenu component
- *
- * Behaviour summary:
- * - When collapsed: show only icons, hide submenu (display:none).
- * - On hover while collapsed: expand to show labels and restore last-open submenu.
- * - Only one submenu open at a time.
- * - Clicking a parent toggles its submenu (and closes any other).
- * - Parent toggles are keyboard-accessible.
- */
 const Navmenu: React.FC<NavmenuProps> = React.memo(({ menus, collapsed, isHovered }) => {
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
   const prevOpenRef = useRef<number | null>(null); // store previously-open submenu when collapsed
   const { pathname } = useLocation();
-
   // Determine current location short name (for active top-level highlighting)
   const locationName = pathname.replace(/^\//, "");
 
@@ -78,10 +67,6 @@ const Navmenu: React.FC<NavmenuProps> = React.memo(({ menus, collapsed, isHovere
     setActiveSubmenu(matchedIndex !== -1 ? matchedIndex : null);
   }, [pathname, menus]);
 
-  // Handle collapse/hover interactions:
-  // - When collapsed becomes true, remember currently open submenu and close it.
-  // - While collapsed, if isHovered becomes true, restore previous submenu.
-  // - When hover ends while collapsed, close submenu but keep previous saved.
   useEffect(() => {
     if (collapsed) {
       // when entering collapsed state, save the current active submenu then hide it
@@ -115,26 +100,16 @@ const Navmenu: React.FC<NavmenuProps> = React.memo(({ menus, collapsed, isHovere
       <ul className="menu-list mt-3">
         {menus.map((item, i) => {
           const isActive = activeSubmenu === i;
-          const pathSegment = pathname.split("/")[1]; // e.g. "integrations" from "/integrations/apiview"
+          const pathSegment = pathname.split("/")[1];
           const isCurrent = locationName === item.link || pathSegment === item.link;
-
-          // Should submenu content be visible? It's visible when either:
-          // - sidebar is expanded (!collapsed), OR
-          // - sidebar is collapsed but hovered (isHovered)
-          // AND the submenu is actually open (isActive)
           const showSubmenu = (!collapsed || isHovered) && isActive;
 
-          // Top-level link (no child)
           if (!item.child && !item.isHeadr && item.link) {
             const Icon = item.icon;
             return (
               <li
                 key={i}
-                className={[
-                  "single-sidebar-menu",
-                  isCurrent ? "menu-item-active" : "",
-                ].join(" ")}
-              >
+                className={["single-sidebar-menu", isCurrent ? "menu-item-active" : "",].join(" ")}  >
                 <NavLink className="menu-link d-flex align-items-center" to={item.link}>
                   <span className="menu-icon pe-2">
                     <Icon width={18} height={18} />
@@ -146,35 +121,17 @@ const Navmenu: React.FC<NavmenuProps> = React.memo(({ menus, collapsed, isHovere
               </li>
             );
           }
-
-          // Dropdown parent with children
           const Icon = item.icon;
           return (
             <li
               key={i}
-              className={[
-                "single-sidebar-menu",
-                item.child ? "item-has-children" : "",
-                isActive ? "open" : "",
-                isCurrent ? "menu-item-active" : "",
-              ].join(" ")}
-            >
+              className={["single-sidebar-menu", item.child ? "item-has-children" : "", isActive ? "open" : "", isCurrent ? "menu-item-active" : "",].join(" ")}>
               <div
-                // Parent toggle - uses role=button for screen readers
                 role="button"
                 tabIndex={0}
                 aria-expanded={isActive}
                 aria-controls={`submenu-${i}`}
-                className={[
-                  "menu-link",
-                  "d-flex",
-                  "justify-content-between",
-                  "align-items-center",
-                  "px-2",
-                  "py-2",
-                  "cursor-pointer",
-                  isActive ? "parent_active not-collapsed background-light" : "collapsed",
-                ].join(" ")}
+                className={["menu-link", "d-flex", "justify-content-between", "align-items-center", "px-2", "py-2", "cursor-pointer", isActive ? "parent_active not-collapsed background-light" : "collapsed",].join(" ")}
                 onClick={() => toggleSubmenu(i)}
                 onKeyDown={(e) => onParentKey(e, i)}
               >
@@ -194,9 +151,6 @@ const Navmenu: React.FC<NavmenuProps> = React.memo(({ menus, collapsed, isHovere
                   </div>
                 )}
               </div>
-
-              {/* Sidebar component responsible for rendering children.
-                  We pass showSubmenu so Sidebar can hide with display:none when collapsed */}
               <Sidebar
                 activeSubmenu={activeSubmenu}
                 item={item}
@@ -204,7 +158,6 @@ const Navmenu: React.FC<NavmenuProps> = React.memo(({ menus, collapsed, isHovere
                 collapsed={collapsed}
                 isHovered={isHovered}
                 isMenuBar={false}
-              // showSubmenu={showSubmenu} // <-- new prop you should read in Sidebar
               />
             </li>
           );

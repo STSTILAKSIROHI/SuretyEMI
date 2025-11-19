@@ -2,12 +2,15 @@ import React, { Suspense, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../component/loading/Loading';
 import { Formik, Form } from 'formik';
-import { Button, Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import Step from '../../component/Step/Step';
 import CustomButton from '../../component/ui/customButton/CustomButton';
 import PersonalInfo from './PersonalInfo';
-import { MdOutlineCreateNewFolder } from 'react-icons/md';
-import { personalinfo } from './YupSchema/YupSchema';
+import { personalinfo } from './YupSchema';
+import BusinesssDetail from './BusinesssDetail';
+import Documents from './Documents';
+import Otherdetails from './Otherdetails';
+import CommissionCost from './CommissionCost';
 const steps = [
     { apiNm: ' Personal Information' },
     { apiNm: ' Businesss Detail' },
@@ -35,6 +38,7 @@ const CreateDistirbutor = () => {
                         alternateMobile: '',
                         email: '',
                         aadhaar: '',
+                        autoDebit: false,
                     }}
                     validationSchema={schemaArray[currentStep]}
                     onSubmit={(values, action) => {
@@ -43,10 +47,10 @@ const CreateDistirbutor = () => {
                         action.setSubmitting(true);
                     }}
                 >
-                    {({ values, setFieldValue, handleBlur, setTouched, handleChange }) => {
+                    {({ values, setFieldValue, handleBlur, setTouched, resetForm }) => {
                         // console.log("error", errors)
                         return (
-                            <Form className='px-4 mt-4 '>
+                            <Form className='px-4 '>
                                 {/* <h6> <MdOutlineCreateNewFolder /> Distirbutor <span className='primary' > KYC Process</span></h6> */}
                                 <Row>
                                     <Col sm={9}>
@@ -58,7 +62,22 @@ const CreateDistirbutor = () => {
                                             // Organization details form
                                             <PersonalInfo values={values} setFieldValue={setFieldValue} handleBlur={handleBlur} />
                                         )}
-
+                                        {currentStep === 1 && (
+                                            // Organization details form
+                                            <BusinesssDetail values={values} setFieldValue={setFieldValue} handleBlur={handleBlur} />
+                                        )}
+                                        {currentStep === 2 && (
+                                            // Organization details form
+                                            <Documents values={values} setFieldValue={setFieldValue} handleBlur={handleBlur} />
+                                        )}
+                                        {currentStep === 3 && (
+                                            // Organization details form
+                                            <Otherdetails values={values} setFieldValue={setFieldValue} handleBlur={handleBlur} />
+                                        )}
+                                        {currentStep === 4 && (
+                                            // Organization details form
+                                            <CommissionCost values={values} setFieldValue={setFieldValue} handleBlur={handleBlur} />
+                                        )}
                                     </Col>
                                     <Col sm={9} >
                                         <div className='d-flex justify-content-between gap-2 mt-3' >

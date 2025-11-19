@@ -7,7 +7,6 @@ import StatusBadge from '../../component/ui/CustomBadge/StatusBadge';
 import ToggleSwitch from '../../component/ui/ToggleSwitch/ToggleSwitch';
 import { MdMarkEmailUnread, MdOutlineConnectWithoutContact } from 'react-icons/md';
 import { IoFilterSharp, IoLocationSharp } from "react-icons/io5";
-import { IoIosPerson } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 
 // 1. Define the shape of your data (Matched to your real-world data)
@@ -72,7 +71,7 @@ const DistirbutorTbl: React.FC<OrgTableProps> = ({ data, columns }) => {
                         />
                         <CustomButton text="Add Distributor"
                             type='button'
-                            onClick={() => { navigate('/createdistirbutor') }}
+                            onClick={() => { navigate('/distributor/create') }}
                         />
                     </div>}
             >

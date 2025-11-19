@@ -1,5 +1,6 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// @ts-ignore: side-effect CSS import without type declarations
 import './App.css';
 import Login from './pages/authentication/pages/Login';
 import ForgotPassword from './pages/authentication/pages/ForgotPassword';
@@ -19,7 +20,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/distributor" element={<Distirbutor />} />
-          <Route path='/createdistirbutor' element={<CreateDistirbutor />} />
+          <Route path='/distributor/create' element={<CreateDistirbutor />} />
         </Route>
       </Routes>
     </BrowserRouter>

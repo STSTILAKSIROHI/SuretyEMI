@@ -3,6 +3,7 @@ import { Col, Image, Row } from 'react-bootstrap';
 import Textfield from '../../component/TextInput';
 import person from '../../assests/Ellipse 62.png';
 import { ErrorMessage } from 'formik';
+import { FiAlertCircle } from "react-icons/fi";
 
 interface Props {
     values: any;
@@ -20,20 +21,6 @@ const Instruction = [
 ];
 
 const PersonalInfo: React.FC<Props> = ({ values, setFieldValue }) => {
-    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const selectedFile = event.target.files?.[0];
-        if (selectedFile) {
-            setFieldValue("profilePicture", selectedFile);
-        }
-    };
-
-    const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
-        event.preventDefault();
-        const droppedFile = event.dataTransfer.files?.[0];
-        if (droppedFile) {
-            setFieldValue("profilePicture", droppedFile);
-        }
-    };
     return (
         <div className="personal-info-card p-3">
 
@@ -44,21 +31,26 @@ const PersonalInfo: React.FC<Props> = ({ values, setFieldValue }) => {
                             <span className="heading-icon">👤</span> Please Enter the distributor personal Information
                         </legend>
                         <Row>
-                            <Col xs={12} md={2} className="d-flex justify-content-center">
-                                {/* <div className="avatar-wrapper"> */}
-                                {/*  */}
+                            <Col xs={12} md={2} className="d-flex justify-content-center mt-3">
                                 <div
                                     className={`document-uploader`}
-                                    onDrop={handleDrop}
+                                    onDrop={(event: React.DragEvent<HTMLDivElement>) => {
+                                        event.preventDefault();
+                                        const droppedFile = event.dataTransfer.files?.[0];
+                                        if (droppedFile) {
+                                            setFieldValue("profilePicture", droppedFile);
+                                        }
+                                    }
+                                    }
                                     onDragOver={(e) => e.preventDefault()}
                                 >
-                                    <input
-                                        type="file"
-                                        id="profilePicture"
-                                        name="profilePicture"
-                                        hidden
-                                        onChange={handleFileChange}
-                                    />
+                                    <input type="file" id="profilePicture" name="profilePicture" hidden onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                        const selectedFile = event.target.files?.[0];
+                                        if (selectedFile) {
+                                            setFieldValue("profilePicture", selectedFile);
+                                        }
+                                    }
+                                    } />
 
                                     <div className={`d-grid rounded align-items-center justify-content-center  ${values.profilePicture ? "border rounded-circle" : "border-0 "}  p-3 py-3 text-center cursor-pointer`}
                                         onClick={() => document.getElementById("profilePicture")?.click()}
@@ -71,7 +63,6 @@ const PersonalInfo: React.FC<Props> = ({ values, setFieldValue }) => {
                                         }
                                     </div>
                                 </div>
-                                {/* </div> */}
                             </Col>
                             <Col md={10} sm={12}>
                                 <Row className="g-3  mt-1">
@@ -79,6 +70,7 @@ const PersonalInfo: React.FC<Props> = ({ values, setFieldValue }) => {
                                         <Textfield
                                             label="Full Name"
                                             name="fullName"
+                                            type='text'
                                             placeholder="Enter full name"
                                             value={values.fullName}
                                             onChange={(e) => setFieldValue("fullName", e.target.value)}
@@ -95,9 +87,11 @@ const PersonalInfo: React.FC<Props> = ({ values, setFieldValue }) => {
                                         <Textfield
                                             label="Mobile Number"
                                             name="mobile"
+                                            type="text"
+                                            maxLength={10}
                                             placeholder="Enter mobile number"
                                             value={values.mobile}
-                                            onChange={(e) => setFieldValue("mobile", e.target.value)}
+                                            onChange={(e) => setFieldValue("mobile", e.target.value.replace(/\D/g, ""))}
                                             required
                                         />
                                         <ErrorMessage
@@ -111,9 +105,10 @@ const PersonalInfo: React.FC<Props> = ({ values, setFieldValue }) => {
                                         <Textfield
                                             label="Alternate Mobile Number"
                                             name="alternateMobile"
+                                            maxLength={10}
                                             placeholder="Enter alternate mobile number"
                                             value={values.alternateMobile}
-                                            onChange={(e) => setFieldValue("alternateMobile", e.target.value)}
+                                            onChange={(e) => setFieldValue("alternateMobile", e.target.value.replace(/\D/g, ""))}
                                         />
                                         <ErrorMessage
                                             name="alternateMobile"
@@ -143,6 +138,7 @@ const PersonalInfo: React.FC<Props> = ({ values, setFieldValue }) => {
                                             label="Aadhaar Number"
                                             name="aadhaar"
                                             placeholder="Enter Aadhaar number"
+                                            maxLength={12}
                                             value={values.aadhaar}
                                             onChange={(e) => setFieldValue("aadhaar", e.target.value)}
                                             required
@@ -158,9 +154,14 @@ const PersonalInfo: React.FC<Props> = ({ values, setFieldValue }) => {
                                         <Textfield
                                             label="Pan Number"
                                             name="pan"
+                                            maxLength={10}
                                             placeholder="Enter Pan Number"
                                             value={values.pan}
-                                            onChange={(e) => setFieldValue("pan", e.target.value)}
+                                            onChange={(e) => {
+                                                const value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 10);
+                                                setFieldValue("pan", value);
+                                            }
+                                            }
                                             required
                                         />
                                         <ErrorMessage
@@ -179,13 +180,10 @@ const PersonalInfo: React.FC<Props> = ({ values, setFieldValue }) => {
                 {/* Instructions */}
                 <Col md={3} sm={12}>
                     <div className="p-3 border bg-light rounded">
-                        <h6 className="text-primary">Instructions</h6>
+                        <h6 className="text-primary"> <span><FiAlertCircle /></span> Instructions</h6>
                         {Instruction.map((instruction, i) => (
-                            <div
-                                key={i}
-                                className="mt-3 bg-white rounded-2 d-flex gap-2 px-3 p-3 pt-3"
-                            >
-                                <p className="text-md mb-0">{instruction.apiNm}</p>
+                            <div key={i} className="mt-3 bg-white rounded-2 d-flex gap-2 px-3 p-3 pt-3">
+                                <p className="text-md mb-0"><span className='primary' ><FiAlertCircle /></span> {instruction.apiNm}</p>
                             </div>
                         ))}
                     </div>
