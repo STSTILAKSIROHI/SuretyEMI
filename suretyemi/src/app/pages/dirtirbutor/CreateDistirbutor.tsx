@@ -6,11 +6,11 @@ import { Col, Row } from 'react-bootstrap';
 import Step from '../../component/Step/Step';
 import CustomButton from '../../component/ui/customButton/CustomButton';
 import PersonalInfo from './PersonalInfo';
-import { personalinfo } from './YupSchema';
 import BusinesssDetail from './BusinesssDetail';
 import Documents from './Documents';
 import Otherdetails from './Otherdetails';
 import CommissionCost from './CommissionCost';
+import { businessDetailsSchema, commissionCostSchema, documentsSchema, otherDetailsSchema, personalInfoSchema } from './YupSchema';
 const steps = [
     { apiNm: ' Personal Information' },
     { apiNm: ' Businesss Detail' },
@@ -23,7 +23,7 @@ const CreateDistirbutor = () => {
     const [currentStep, setCurrentStep] = useState(0);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    const schemaArray = [personalinfo];
+    const schemaArray = [personalInfoSchema, businessDetailsSchema, documentsSchema, otherDetailsSchema, commissionCostSchema];
     const handleNext = () => setCurrentStep((prev) => prev + 1); //  steps next 
     const handlePrev = () => setCurrentStep((prev) => (prev > 0 ? prev - 1 : 0)); // step backs
     return (
@@ -31,14 +31,57 @@ const CreateDistirbutor = () => {
             <Suspense fallback={<Loading />}>
                 <Formik
                     initialValues={{
-                        usename: '',
-                        pan: '',
+                        // Step 1: Personal Information
+                        profilePicture: null,
                         fullName: '',
                         mobile: '',
                         alternateMobile: '',
                         email: '',
                         aadhaar: '',
-                        autoDebit: false,
+                        pan: '',
+
+                        // Step 2: Business Details
+                        businessName: '',
+                        typeofBusiness: '',
+                        typeofBusinesslbl: '', // For label tracking
+                        businessGSTNo: '',
+                        businessLicenseNo: '',
+                        businessEmail: '',
+                        businessContactNo: '',
+                        OrgAddress1: '',
+                        OrgAddress2: '',
+                        City: '',
+                        Citylbl: '',
+                        State: '',
+                        Statelbl: '',
+                        Country: '',
+                        Countrylbl: '',
+                        Pincode: '',
+
+                        // Step 3: Documents
+                        aadhaarFront: null,
+                        aadhaarBack: null,
+                        panCard: null,
+                        gstCert: null,
+                        securityCheque: null,
+                        bankStatement: null,
+
+                        // Step 4: Other Details (Bank & Reference)
+                        accountHolderName: '',
+                        bankName: '',
+                        accountNumber: '',
+                        ifscCode: '',
+                        upiId: '',
+                        referencePersonName: '',
+                        referenceContactNumber: '',
+                        address1: '', // Reference address
+
+                        // Step 5: Commission/Cost
+                        // These might be populated by the RecurringMdl or PlanCard logic
+                        selectedPlanId: '',
+                        planAmount: '',
+                        isPlanSelected: false,
+                        otp: ''
                     }}
                     validationSchema={schemaArray[currentStep]}
                     onSubmit={(values, action) => {

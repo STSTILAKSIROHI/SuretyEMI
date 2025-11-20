@@ -4,19 +4,12 @@ import Textfield from '../../component/TextInput';
 import { ErrorMessage } from 'formik';
 import { Col } from 'react-bootstrap';
 import { FiAlertCircle } from 'react-icons/fi';
+import { formInstructions } from './YupSchema';
 interface Props {
     values: any;
     setFieldValue?: any;
     handleBlur?: any;
 }
-const Instruction = [
-    { apiNm: "Enter the distributor's full legal name as per government ID." },
-    { apiNm: "Mobile number must be unique and linked with active Aadhaar." },
-    { apiNm: "Alternate mobile number is optional but recommended." },
-    { apiNm: "Enter valid PAN & Aadhaar details for verification." },
-    { apiNm: "Ensure email address is correct for login communication." },
-    { apiNm: "Review all information before proceeding to the next step." }
-];
 const Otherdetails: React.FC<Props> = ({ values, setFieldValue }) => {
     return (
         <>
@@ -32,6 +25,7 @@ const Otherdetails: React.FC<Props> = ({ values, setFieldValue }) => {
                                     label="Account Holder Name"
                                     name="accountHolderName"
                                     type='text'
+                                    maxLength={40}
                                     placeholder="Enter account holder name"
                                     value={values.accountHolderName}
                                     onChange={(e) => setFieldValue("accountHolderName", e.target.value)}
@@ -48,6 +42,7 @@ const Otherdetails: React.FC<Props> = ({ values, setFieldValue }) => {
                                     label="Bank Name "
                                     name="bankName"
                                     type='text'
+                                    maxLength={40}
                                     placeholder="Enter bank name"
                                     value={values.bankName}
                                     onChange={(e) => setFieldValue("bankName", e.target.value)}
@@ -64,6 +59,7 @@ const Otherdetails: React.FC<Props> = ({ values, setFieldValue }) => {
                                     label="Account Number"
                                     name="accountNumber"
                                     type='text'
+                                    maxLength={18}
                                     placeholder="Enter account number"
                                     value={values.accountNumber}
                                     onChange={(e) => setFieldValue("accountNumber", e.target.value)}
@@ -80,6 +76,7 @@ const Otherdetails: React.FC<Props> = ({ values, setFieldValue }) => {
                                     label="IFSC Code"
                                     name="ifscCode"
                                     type='text'
+                                    maxLength={11}
                                     placeholder="Enter IFSC code"
                                     value={values.ifscCode}
                                     onChange={(e) => setFieldValue("ifscCode", e.target.value)}
@@ -96,6 +93,7 @@ const Otherdetails: React.FC<Props> = ({ values, setFieldValue }) => {
                                     label="UPI ID (If any)"
                                     name="upiId"
                                     type='text'
+                                    maxLength={50}
                                     placeholder="Enter UPI ID"
                                     value={values.upiId}
                                     onChange={(e) => setFieldValue("upiId", e.target.value)}
@@ -117,6 +115,7 @@ const Otherdetails: React.FC<Props> = ({ values, setFieldValue }) => {
                                     label="Reference Person Name"
                                     name="referencePersonName"
                                     type='text'
+                                    maxLength={50}
                                     placeholder="Enter reference person name"
                                     value={values.referencePersonName}
                                     onChange={(e) => setFieldValue("referencePersonName", e.target.value)}
@@ -133,6 +132,7 @@ const Otherdetails: React.FC<Props> = ({ values, setFieldValue }) => {
                                     label="Reference Contact Number "
                                     name="referenceContactNumber"
                                     type='text'
+                                    maxLength={10}
                                     placeholder="Enter reference contact number"
                                     value={values.referenceContactNumber}
                                     onChange={(e) => setFieldValue("referenceContactNumber", e.target.value)}
@@ -149,6 +149,7 @@ const Otherdetails: React.FC<Props> = ({ values, setFieldValue }) => {
                                     label="Address1"
                                     name="address1"
                                     type='text'
+                                    maxLength={100}
                                     placeholder="Enter address1"
                                     value={values.address1}
                                     onChange={(e) => setFieldValue("address1", e.target.value)}
@@ -166,7 +167,7 @@ const Otherdetails: React.FC<Props> = ({ values, setFieldValue }) => {
                 <Col md={3} sm={12}>
                     <div className="p-3 border bg-light rounded">
                         <h6 className="text-primary"> <span><FiAlertCircle /></span> Instructions</h6>
-                        {Instruction.map((instruction, i) => (
+                        {formInstructions[3].map((instruction, i) => (
                             <div key={i} className="mt-3 bg-white rounded-2 d-flex gap-2 px-3 p-3 pt-3">
                                 <p className="text-md mb-0"><span className='primary' ><FiAlertCircle /></span> {instruction.apiNm}</p>
                             </div>

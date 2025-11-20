@@ -6,7 +6,7 @@ import { IoClose, IoDocumentTextOutline } from "react-icons/io5";
 interface DragableFileSectionProps {
     accepted?: string;
     maxSize?: number; // in MB
-    file: File | null;
+    file: File;
     content?: string;
     name: string;
     onChange: (file: File | null) => void;

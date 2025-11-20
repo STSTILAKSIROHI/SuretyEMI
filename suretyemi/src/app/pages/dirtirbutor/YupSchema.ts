@@ -1,208 +1,108 @@
 import * as Yup from "yup";
+// --- Validation Schemas per Step ---
+const phoneRegExp = /^[6-9]\d{9}$/;
+const panRegExp = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+const aadhaarRegExp = /^\d{12}$/;
+const gstRegExp = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
+const ifscRegExp = /^[A-Z]{4}0[A-Z0-9]{6}$/;
+const pinCodeRegExp = /^[1-9][0-9]{5}$/;
+// Step 0: Personal Info
+export const personalInfoSchema = Yup.object().shape({
+  fullName: Yup.string().min(3, "Name is too short").required("Full Name is required"),
+  mobile: Yup.string().matches(phoneRegExp, "Invalid mobile number").required("Mobile number is required"),
+  alternateMobile: Yup.string().matches(phoneRegExp, "Invalid mobile number").notRequired(), // Optional
+  email: Yup.string().email("Invalid email address").required("Email is required"),
+  aadhaar: Yup.string().matches(aadhaarRegExp, "Invalid Aadhaar number (12 digits)").required("Aadhaar is required"),
+  pan: Yup.string().matches(panRegExp, "Invalid PAN number").required("PAN number is required"),
+  profilePicture: Yup.mixed().required("Profile picture is required"),
+});
 
-// Step 0: Organization Details
-export const personalinfo = Yup.object().shape({
-  fullName: Yup.string()
-    .required("Full Name is required"),
+// Step 1: Business Details
+export const businessDetailsSchema = Yup.object().shape({
+  businessName: Yup.string().required("Business Name is required"),
+  typeofBusiness: Yup.string().required("Business Type is required"),
+  businessGSTNo: Yup.string().matches(gstRegExp, "Invalid GST Number").required("GST Number is required"),
+  businessLicenseNo: Yup.string().required("License Number is required"),
+  businessEmail: Yup.string().email("Invalid email").required("Business Email is required"),
+  businessContactNo: Yup.string().matches(phoneRegExp, "Invalid contact number").required("Business Contact is required"),
+  OrgAddress1: Yup.string().required("Address Line 1 is required"),
+  OrgAddress2: Yup.string().required("Address Line 2 is required"),
+  City: Yup.string().required("City is required"),
+  State: Yup.string().required("State is required"),
+  Country: Yup.string().required("Country is required"),
+  Pincode: Yup.string().matches(pinCodeRegExp, "Invalid Pincode").required("Pincode is required"),
+});
 
-  mobile: Yup.string()
-    .matches(/^[6-9]\d{9}$/, "Enter a valid mobile number")
-    .required("Mobile number is required"),
+// Step 2: Documents
+export const documentsSchema = Yup.object().shape({
+  aadhaarFront: Yup.mixed().required("Aadhaar Front image is required"),
+  aadhaarBack: Yup.mixed().required("Aadhaar Back image is required"),
+  panCard: Yup.mixed().required("PAN Card image is required"),
+  gstCert: Yup.mixed().required("GST Certificate is required"),
+  securityCheque: Yup.mixed().required("Security Cheque is required"),
+  bankStatement: Yup.mixed().required("Bank Statement is required"),
+});
 
-  alternateMobile: Yup.string()
-    .matches(/^[6-9]\d{9}$/, "Enter a valid alternate mobile number")
-    .optional(), // or .required("") if you want required
+// Step 3: Other Details
+export const otherDetailsSchema = Yup.object().shape({
+  accountHolderName: Yup.string().required("Account Holder Name is required"),
+  bankName: Yup.string().required("Bank Name is required"),
+  accountNumber: Yup.string().min(9, "Invalid Account Number").max(18, "Invalid Account Number").required("Account Number is required"),
+  ifscCode: Yup.string().matches(ifscRegExp, "Invalid IFSC Code").required("IFSC Code is required"),
+  upiId: Yup.string().matches(/^[\w.-]+@[\w.-]+$/, "Invalid UPI ID").required("UPI ID is required"),
+  referencePersonName: Yup.string().required("Reference Person Name is required"),
+  referenceContactNumber: Yup.string().matches(phoneRegExp, "Invalid contact number").required("Reference Contact is required"),
+  address1: Yup.string().required("Reference Address is required"),
+});
 
-  email: Yup.string()
-    .email("Enter a valid email")
-    .required("Email is required"),
-
-  aadhaar: Yup.string()
-    .matches(/^[2-9]{1}[0-9]{11}$/, "Invalid Aadhaar number")
-    .required("Aadhaar number is required"),
-
-  pan: Yup.string()
-    .matches(/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/, "Invalid PAN number")
-    .required("PAN number is required"),
+// Step 4: Commission / Cost
+// Validation here depends on if you strictly require a plan selection before submitting
+export const commissionCostSchema = Yup.object().shape({
+  // Example: If you set 'isPlanSelected' to true in your Modal
+  // isPlanSelected: Yup.boolean().oneOf([true], "Please select a plan to proceed"),
 });
 
 
-export const OrgServiceConfigSchema = Yup.object().shape({
-  AssignNo: Yup.string().required("Assign Number is required").matches(/^\d{10}$/, "Assign Number must be 10 digits"),
-  Service: Yup.array().of(Yup.string()).min(1, "At least one service must be selected").required("Service is required"),
-  MaxCall: Yup.string().required("Max concurrent calls is required").matches(/^[0-9]+$/, "Only numbers are allowed").max(3, "Maximum 3 digits allowed"),
-  DefaultIVR: Yup.string().required("Default IVR is required"),
-  PreferredLang: Yup.array().of(Yup.string()).min(1, "Select at least one language").required("Preferred language is required"),
-  WelcomeScript: Yup.string().required("Welcome Script is required").max(500, "Welcome script cannot exceed 500 characters"),
-  TwoFactorAuth: Yup.boolean(),
-  CallRecording: Yup.boolean(),
-  StorageCapacity: Yup.string().when("CallRecording", { is: true, then: (schema) => schema.required("Storage capacity is required when call recording is enabled"), otherwise: (schema) => schema.notRequired(), }),
-  RecordingRetention: Yup.string().when("CallRecording", { is: true, then: (schema) => schema.required("Recording retention period is required when call recording is enabled"), otherwise: (schema) => schema.notRequired(), }),
-  IntegratedServices: Yup.boolean(),
-  TicketServices: Yup.boolean(),
-});
 
-export const OtherConfigSchema = Yup.object().shape({
-  BranchLimit: Yup.string().required("Branch Limit is required"),
-  UserLimit: Yup.string().required("User Limit is required"),
-  OrgLogo: Yup.mixed().required("Organization Logo is required").test("fileFormat", "Only PNG files are allowed",
-    (value) => {
-      if (!value) return false;
-      if (typeof value === "string") return value.endsWith(".png");
-      return value && (value as File).type === "image/png";
-    }
-  ),
-
-  Favicon: Yup.mixed()
-    .required("Favicon is required")
-    .test(
-      "fileFormat",
-      "Only PNG files are allowed",
-      (value) => {
-        if (!value) return false;
-        if (typeof value === "string") return value.endsWith(".png");
-        return value && (value as File).type === "image/png";
-      }
-    ),
-
-  Width: Yup.string().required("Width is required").matches(/^\d+$/, "Width must be numeric"),
-
-  height: Yup.string().required("Height is required").matches(/^\d+$/, "Height must be numeric"),
-
-  Metakeyword: Yup.string().max(100, "Meta keyword cannot exceed 100 characters").nullable(),
-
-  MetaDes: Yup.string().max(200, "Meta description cannot exceed 200 characters").nullable(),
-});
-
-// Step 3: SMS Config
-export const smsConfigSchema = Yup.object().shape({
-  vendor: Yup.string().required("Vendor is required"),
-
-  // Conditional: For "Other" vendor
-  ApiMethod: Yup.string().when("vendor", {
-    is: "Other",
-    then: (schema) => schema.required("API Method is required"),
-    otherwise: (schema) => schema.notRequired(),
-  }),
-
-  ApiUrl: Yup.string().when("vendor", {
-    is: "Other",
-    then: (schema) =>
-      schema
-        .required("API URL is required")
-        .matches(
-          /^(https?:\/\/)[\w.-]+(\.[\w\.-]+)+[/#?]?.*$/,
-          "Enter a valid URL"
-        ),
-    otherwise: (schema) => schema.notRequired(),
-  }),
-
-  // Conditional: For other vendors (Soft-Tech, etc.)
-  smsType: Yup.string().when("vendor", {
-    is: (val: string) => val && val !== "Other",
-    then: (schema) => schema.required("SMS Type is required"),
-    otherwise: (schema) => schema.notRequired(),
-  }),
-
-  username: Yup.string().when("vendor", {
-    is: (val: string) => val && val !== "Other",
-    then: (schema) =>
-      schema
-        .required("Username is required")
-        .min(3, "Username must be at least 3 characters"),
-    otherwise: (schema) => schema.notRequired(),
-  }),
-
-  authKey: Yup.string().when("vendor", {
-    is: (val: string) => val && val !== "Other",
-    then: (schema) =>
-      schema
-        .required("Auth Key is required")
-        .min(5, "Auth Key must be at least 5 characters"),
-    otherwise: (schema) => schema.notRequired(),
-  }),
-
-  senderId: Yup.string().when("vendor", {
-    is: (val: string) => val && val !== "Other",
-    then: (schema) =>
-      schema
-        .required("Sender ID is required")
-        .min(3, "Sender ID must be at least 3 characters")
-        .max(15, "Sender ID must be 15 characters or less"),
-    otherwise: (schema) => schema.notRequired(),
-  }),
-});
-
-// Step 4: Mail Config
-export const MailConfigSchema = Yup.object().shape({
-  Active: Yup.boolean().required(),
-
-  host: Yup.string()
-    .trim()
-    .required("Host is required")
-    .matches(
-      /^(?!.*\s)([\w.-]+)\.([a-z]{2,})$/,
-      "Enter a valid host name (e.g., smtp.gmail.com)"
-    ),
-
-  port: Yup.string()
-    .required("Port is required")
-    .matches(/^\d+$/, "Port must be a number")
-    .min(2, "Invalid port number")
-    .max(5, "Invalid port number"),
-
-  username: Yup.string()
-    .trim()
-    .required("Username is required")
-    .min(3, "Username must be at least 3 characters")
-    .max(100, "Username cannot exceed 100 characters"),
-
-  password: Yup.string()
-    .required("Password is required")
-    .min(6, "Password must be at least 6 characters")
-    .max(100, "Password cannot exceed 100 characters"),
-
-  fromEmail: Yup.string()
-    .trim()
-    .email("Enter a valid email address")
-    .required("From Email ID is required"),
-
-  tlsEnabled: Yup.boolean()
-    .required()
-    .oneOf([true, false], "TLS setting must be specified"),
-});
-
-// intergration model velidation 
-
-export const Apiintergration = Yup.object().shape({
-  serviceName: Yup.string().required("Service Name is required").max(25, "Must be at most 25 characters").min(8, "Must be at least 8 characters"),
-  description: Yup.string().required("Service Description is required"),
-  steps: Yup.array().of(
-    Yup.object().shape({
-      apiUrl: Yup.string().required("API Path is required"),
-      reqType: Yup.string().required("Request Type is required"),
-      contentType: Yup.string().required("Content Type is required"),
-      reqPayload: Yup.string().required("Request Payload is required"),
-      authType: Yup.string().required("Authentication Type is required"),
-      username: Yup.string().when("authType", { is: "Basic", then: (schema) => schema.required("Username is required"), otherwise: (schema) => schema.notRequired() }),
-      password: Yup.string().when("authType", { is: "Basic", then: (schema) => schema.required("Password is required"), otherwise: (schema) => schema.notRequired(), }),
-      reqData: Yup.array().of(Yup.object().shape({
-        type: Yup.string().required("Input Type is required"), label: Yup.string().required("Input label Name is required"), payloadVal: Yup.string().required("Payload is required"),
-        dropDownValues: Yup.array().when("inputType", {
-          is: (inputType: string) =>
-            inputType === "DROPDOWN" || inputType === "RADIO",
-          then: (schema: any) =>
-            Yup.array().of(
-              Yup.object().shape({
-                value: Yup.string().required("Option Value is required"),
-              })
-            ),
-        }),
-      })
-      ),
-      successData: Yup.array().of(Yup.object().shape({ key: Yup.string().required("Key is required"), type: Yup.string().required("Type is required"), value: Yup.mixed().required("Value is required"), })),
-      failedData: Yup.array().of(Yup.object().shape({ key: Yup.string().required("Key is required"), type: Yup.string().required("Type is required"), value: Yup.mixed().required("Value is required"), })),
-      ExceptionData: Yup.array().of(Yup.object().shape({ key: Yup.string().required("Key is required"), type: Yup.string().required("Type is required"), value: Yup.mixed().required("Value is required"), })),
-    })
-  ),
-});
+// --- Instructions Data ---
+export const formInstructions = [
+  // Step 0: Personal Info
+  [
+    { apiNm: "Enter the distributor's full legal name as per government ID." },
+    { apiNm: "Mobile number must be unique and linked with active Aadhaar." },
+    { apiNm: "Alternate mobile number is optional but recommended." },
+    { apiNm: "Enter valid PAN & Aadhaar details for verification." },
+    { apiNm: "Ensure email address is correct for login communication." },
+    { apiNm: "Review all information before proceeding to the next step." }
+  ],
+  // Step 1: Business Details
+  [
+    { apiNm: "Provide the registered business name as on the license." },
+    { apiNm: "Select the appropriate business entity type." },
+    { apiNm: "GST Number is mandatory for tax purposes." },
+    { apiNm: "Ensure the address matches the proof of business documents." },
+    { apiNm: "Business email will be used for official invoicing." }
+  ],
+  // Step 2: Documents
+  [
+    { apiNm: "Upload clear, colored scans of original documents." },
+    { apiNm: "Supported formats: JPG, PNG, PDF. Max size 5MB." },
+    { apiNm: "Ensure edges of the documents are not cropped." },
+    { apiNm: "Aadhaar front and back must be uploaded separately." },
+    { apiNm: "Bank statement should be of the last 3 months." }
+  ],
+  // Step 3: Other Details
+  [
+    { apiNm: "Bank account must belong to the distributor or business." },
+    { apiNm: "Ensure IFSC code matches the branch correctly." },
+    { apiNm: "Reference contact should be a verified individual." },
+    { apiNm: "UPI ID is required for instant small transactions." }
+  ],
+  // Step 4: Commission/Cost
+  [
+    { apiNm: "Select a subscription plan to proceed." },
+    { apiNm: "Review the recurring cost details carefully." },
+    { apiNm: "OTP verification is required to confirm the plan." },
+    { apiNm: "Payment will be initiated after OTP verification." }
+  ]
+];

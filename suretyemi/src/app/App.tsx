@@ -1,6 +1,5 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// @ts-ignore: side-effect CSS import without type declarations
 import './App.css';
 import Login from './pages/authentication/pages/Login';
 import ForgotPassword from './pages/authentication/pages/ForgotPassword';
@@ -9,6 +8,7 @@ import Layout from './layout/Layout';
 import Dashboard from './pages/dashboard/Dashboard';
 import Distirbutor from './pages/dirtirbutor/Distirbutor';
 import CreateDistirbutor from './pages/dirtirbutor/CreateDistirbutor';
+import KycVerify from './pages/KycVerify/KycVerify';
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +21,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/distributor" element={<Distirbutor />} />
           <Route path='/distributor/create' element={<CreateDistirbutor />} />
+          <Route path='/kycverify' element={<KycVerify />} />
         </Route>
       </Routes>
     </BrowserRouter>

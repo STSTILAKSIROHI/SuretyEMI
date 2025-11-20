@@ -351,3 +351,71 @@ input::placeholder {
   background: #f8d7da;
   border-color: #dc3545;
 }
+
+.card-gradient-blueMdl {
+  background: linear-gradient(to top, #eaf4fd 0%, #ffffff 100%);
+}
+
+/* tabs css */
+.custom-tab-bar {
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.custom-tab-bar .nav-link {
+  color: #a2a9b0;
+  /* Inactive text color */
+  font-weight: 500;
+  border: none;
+  padding: 8px 30px;
+  font-size: 14px;
+  border-bottom: 3px solid transparent;
+  background-color: transparent;
+  transition: color 0.2s ease, border-bottom 0.3s ease-out;
+}
+
+.custom-tab-bar .nav-link:hover {
+  color: var(--primaryColor);
+  /* Hover effect */
+}
+
+.custom-tab-bar .nav-link.active {
+  padding: 8px 30px;
+  color: var(--primaryColor);
+  font-weight: 600;
+  border-bottom: 3px solid var(--primaryColor);
+}
+
+.border-left {
+  border-left: 1px solid #dcdcdc;
+}
+
+.customShadow {
+  box-shadow: 0px 0px 1px 1px rgba(10, 13, 18, 0.05);
+}
+
+
+.hover-card-wrapper {
+  position: relative;
+}
+
+.hover-card {
+  overflow: hidden;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(3, 31, 66, 0.185);
+  /* transparent black */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1;
+  border-radius: 0.5rem;
+}
+
+.hover-card:hover .card-overlay {
+  opacity: 1;
+}

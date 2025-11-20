@@ -1,0 +1,46 @@
+.sidebar-tab-list {
+  list-style: none;
+  padding: 0;
+  width: 225px;
+  margin: 0;
+  height: calc(88vh - 60px);
+  overflow-y: auto;
+}
+
+.CustomHeight {
+  height: calc(89vh - 60px);
+}
+
+.sidebar-tab-item {
+  transition: all 1s ease-out;
+}
+
+.tab-link {
+  color: #475569;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all .5s ease-out;
+}
+
+.tab-link:hover {
+  background-color: var(--primaryColor);
+}
+
+.active-tab .tab-link {
+  background-color: var(--primaryColor);
+  color: white;
+}
+
+.active-tab .tab-link .icon .svg {
+  color: white !important;
+}
+
+.tab-label {
+  font-size: 11px;
+}
+
+.tab-content-panel {
+  flex: 1;
+  background-color: #fafafa;
+  min-height: calc(89vh - 60px);
+}

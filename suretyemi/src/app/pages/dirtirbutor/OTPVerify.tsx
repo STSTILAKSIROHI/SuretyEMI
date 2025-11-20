@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import OtpField from '../../component/otpField/OtpField'
-import { convertMinutesSeconds } from '../utils/helper';
-import { useNavigate } from 'react-router-dom';
-import Row from 'react-bootstrap/esm/Row';
-import Col from 'react-bootstrap/esm/Col';
 import { Button } from 'react-bootstrap';
+import { convertMinutesSeconds } from '../../utils/helper';
 
 function OTPVerify() {
     const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);

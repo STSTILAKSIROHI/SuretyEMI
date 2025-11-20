@@ -1,37 +1,18 @@
-import React, { use, useState } from 'react';
-import Avatar from '../../component/ui/Avatar/Avatar';
+import React, { useState } from 'react'
 import { Datatable } from '../../component/ui/DataTable/Datatable';
-import CustomButton from '../../component/ui/customButton/CustomButton';
-import StatusBadge from '../../component/ui/CustomBadge/StatusBadge';
-import ToggleSwitch from '../../component/ui/ToggleSwitch/ToggleSwitch';
-import { MdMarkEmailUnread, MdOutlineConnectWithoutContact } from 'react-icons/md';
-import { IoFilterSharp, IoLocationSharp } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom';
 import { DistributorData } from '../../../types/type';
-
-// 1. Define the shape of your data (Matched to your real-world data)
-
-
-// 2. Define Column Definition
-type ColumnDef<T> = {
-    field: keyof T | (string & {});
-    header: React.ReactNode;
-    sorting?: boolean;
-    align?: "left" | "right" | "center";
-    width?: string;
-};
-
-// 3. Update Props
+import CustomButton from '../../component/ui/customButton/CustomButton';
+import { IoFilterSharp, IoLocationSharp } from 'react-icons/io5';
+import StatusBadge from '../../component/ui/CustomBadge/StatusBadge';
+import { MdMarkEmailUnread, MdOutlineConnectWithoutContact } from 'react-icons/md';
+import Avatar from '../../component/ui/Avatar/Avatar';
 interface OrgTableProps {
     data: any[]; // Use specific type
     columns: any[]; // Use specific type
     setDetails: () => void
 }
-
-const DistirbutorTbl: React.FC<OrgTableProps> = ({ data, columns, setDetails }) => {
+const DistirbutorKycTbl: React.FC<OrgTableProps> = ({ data, columns, setDetails }) => {
     const [selectData, setSelectData] = useState<(string | number)[]>([]);
-    const navigate = useNavigate();
-
     return (
         <div>
             <Datatable
@@ -39,7 +20,7 @@ const DistirbutorTbl: React.FC<OrgTableProps> = ({ data, columns, setDetails }) 
                 columns={columns}
                 pagination={true}
                 isLoader={false}
-                tableNm="Distributor Table"
+                tableNm=" Distirbutor Onboard KYC Table"
                 icon={"📦"}
                 isSearchBar={true}
                 checkbox={false} // Enable checkboxes
@@ -59,14 +40,10 @@ const DistirbutorTbl: React.FC<OrgTableProps> = ({ data, columns, setDetails }) 
                             </div>
                             }
                         />
-                        <CustomButton text="Add Distributor"
-                            type='button'
-                            onClick={() => { navigate('/distributor/create') }}
-                        />
                     </div>}
             >
                 {/* Custom Render Function */}
-                {(child: { row: DistributorData; column: ColumnDef<DistributorData> }) => (
+                {(child: { row: DistributorData; column: any }) => (
                     <>
                         {/* --- 1. Business Name Column (Avatar + Name + ID) --- */}
                         {child.column.field === 'businessName' && (
@@ -105,9 +82,6 @@ const DistirbutorTbl: React.FC<OrgTableProps> = ({ data, columns, setDetails }) 
                                 <span className="text-sm "> {child.row.email}</span>
                             </div>
                         )}
-                        {child.column.field === 'status' && (
-                            <ToggleSwitch checked={true} label='' onChange={() => { }} />
-                        )}
 
 
                         {/* --- 3. KYC Verification Column (Colored Text) --- */}
@@ -117,7 +91,11 @@ const DistirbutorTbl: React.FC<OrgTableProps> = ({ data, columns, setDetails }) 
                                     label={child.row.kYCVerification}
                                     icon="hugeicons:customer-support"
                                     variant="success"
-                                    style={{ fontSize: "10px" }}
+                                    style={{
+                                        fontSize: "10px",
+                                        backgroundColor: `${child.row.kYCVerification === "pending" ? "#FEF2E5" : child.row.kYCVerification === "failed" ? "#FBE7E8" : ""}`,
+                                        color: `${child.row.kYCVerification === "pending" ? "#db7202ff" : child.row.kYCVerification === "failed" ? "#990008ff" : ""}`
+                                    }}
                                 />
                             </div>
                         )}
@@ -125,8 +103,7 @@ const DistirbutorTbl: React.FC<OrgTableProps> = ({ data, columns, setDetails }) 
                         {/* --- 4. Action Column (Icons) --- */}
                         {child.column.field === 'actions' && (
                             <div className="d-flex align-items-center justify-content-center gap-2">
-                                <CustomButton type='button' variant='transparent' text={"view"} onClick={() => setDetails()} />
-                                <CustomButton type='button' variant='transparent' text={"edit"} />
+                                <CustomButton type='button' variant='transparent' text={"verify"} onClick={() => setDetails()} />
                             </div>
                         )}
 
@@ -160,7 +137,7 @@ const DistirbutorTbl: React.FC<OrgTableProps> = ({ data, columns, setDetails }) 
                 )}
             </Datatable>
         </div >
-    );
-};
+    )
+}
 
-export default DistirbutorTbl;
+export default DistirbutorKycTbl

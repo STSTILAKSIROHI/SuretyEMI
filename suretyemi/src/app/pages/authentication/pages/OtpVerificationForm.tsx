@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import OtpField from "../../../component/otpField/OtpField";
 import LoginLayout from "../layout/Layout";
 import { Button } from "react-bootstrap";
-import { convertMinutesSeconds } from "../../utils/helper";
+import { convertMinutesSeconds } from "../../../utils/helper";
 
 const OtpVerificationForm = () => {
     const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);

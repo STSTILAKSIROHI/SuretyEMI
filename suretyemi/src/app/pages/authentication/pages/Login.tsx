@@ -1,8 +1,6 @@
 // Purpose: Login Screen Template (UI Only)
 // Created by: Tilak Kumar
 // Created Date: 25-07-2025
-
-import React, { useCallback } from "react";
 import { lazy } from "react";
 import Textfield from "../../../component/TextInput";
 import CustomButton from "../../../component/ui/customButton/CustomButton";
@@ -11,9 +9,6 @@ import { CgProfile } from "react-icons/cg";
 import { TbLock } from "react-icons/tb";
 import { Formik, Form as FormikForm, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { Col, Row, Image } from "react-bootstrap";
-import captch from "../../../../../src/app/assests/images.jpg";
-import { LuRefreshCcw } from "react-icons/lu";
 
 
 // lazy imports

@@ -47,6 +47,7 @@ type DatatableProps<T extends { id: any }> = {
   tableDataHeight?: string;
   customHeight?: string | number;
   icon?: ReactNode;
+  hr?: boolean
 };
 
 // 3. Type the sort direction state
@@ -74,6 +75,7 @@ export const Datatable = <T extends { id: any }>({
   height = "calc(100vh - 225px)",
   tableDataHeight,
   icon,
+  hr = true,
   customHeight,
 }: DatatableProps<T>) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -184,10 +186,12 @@ export const Datatable = <T extends { id: any }>({
               </div>
             </div>
           )}
-          <hr style={{ color: "#adadadff" }} />
+          {hr &&
+            <hr style={{ color: "#adadadff" }} />
+          }
           <div
             className=" rounded mt-2"
-            style={{ height, overflow: "auto", border: "1px solid #f0f0f0ff" }}
+            style={{ height: height, overflow: "auto", border: "1px solid #f0f0f0ff" }}
           >
             <Table
               style={{ border: "1px solid #f0f0f0ff" }}

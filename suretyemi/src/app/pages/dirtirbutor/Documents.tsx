@@ -1,26 +1,19 @@
-import React from "react";
+
 import { Row, Col, Card } from "react-bootstrap";
 import { CgFileDocument } from "react-icons/cg";
 import { ErrorMessage } from "formik";
 import DragableFileSection from "../../component/ui/DragableFileSection/DragableFileSection";
 import { FiAlertCircle } from "react-icons/fi";
-import { IoPersonAdd } from "react-icons/io5";
+import { formInstructions } from "./YupSchema";
 
 interface Props {
     values: any;
     setFieldValue?: any;
     handleBlur?: any;
 }
-const Instruction = [
-    { apiNm: "Enter the distributor's full legal name as per government ID." },
-    { apiNm: "Mobile number must be unique and linked with active Aadhaar." },
-    { apiNm: "Alternate mobile number is optional but recommended." },
-    { apiNm: "Enter valid PAN & Aadhaar details for verification." },
-    { apiNm: "Ensure email address is correct for login communication." },
-    { apiNm: "Review all information before proceeding to the next step." }
-];
 
-const Documents: React.FC<Props> = ({ values, setFieldValue, handleBlur }) => {
+const Documents: React.FC<Props> = ({ values, setFieldValue }) => {
+    // const [isCropper, setCropper] = useState<boolean>(false);
     return (
         <>
             <Row className="p-3" >
@@ -49,8 +42,9 @@ const Documents: React.FC<Props> = ({ values, setFieldValue, handleBlur }) => {
                                                     accepted="png,jpg,jpeg"
                                                     id="aadhaar-front"
                                                     imageicon="https://cdn-icons-png.freepik.com/512/10944/10944234.png?ga=GA1.1.431573938.1752828686"
-                                                    onChange={(files) =>
+                                                    onChange={(files) => {
                                                         setFieldValue("aadhaarFront", files)
+                                                    }
                                                     }
                                                 />
                                                 <ErrorMessage
@@ -198,7 +192,7 @@ const Documents: React.FC<Props> = ({ values, setFieldValue, handleBlur }) => {
                 <Col md={3} sm={12}>
                     <div className="p-3 border bg-light rounded">
                         <h6 className="text-primary"> <span><FiAlertCircle /></span> Instructions</h6>
-                        {Instruction.map((instruction, i) => (
+                        {formInstructions[2].map((instruction, i) => (
                             <div key={i} className="mt-3 bg-white rounded-2 d-flex gap-2 px-3 p-3 pt-3">
                                 <p className="text-md mb-0"><span className='primary' ><FiAlertCircle /></span> {instruction.apiNm}</p>
                             </div>
@@ -206,6 +200,7 @@ const Documents: React.FC<Props> = ({ values, setFieldValue, handleBlur }) => {
                     </div>
                 </Col>
             </Row>
+
         </>
     );
 };

@@ -1,32 +1,19 @@
-import { TbLayoutDashboard, TbTicket } from "react-icons/tb";
+import { TbLayoutDashboard } from "react-icons/tb";
 import {
-  HiOutlineBuildingOffice,
   HiOutlineBuildingLibrary,
   HiOutlineUser,
   HiOutlineCog6Tooth,
-  HiOutlineEye,
-  HiOutlineChartBar,
-  HiOutlinePhoneArrowDownLeft,
-  HiOutlineCodeBracket,
   HiOutlineAdjustmentsHorizontal,
-  HiOutlineUsers,
   HiOutlineReceiptPercent,
-  HiOutlineExclamationCircle,
   HiOutlineArchiveBoxArrowDown,
 } from "react-icons/hi2";
-import { BiCube, BiServer } from "react-icons/bi";
 import {
   AiOutlineCheckCircle,
-  AiOutlineCi,
   AiOutlineFile,
   AiOutlineSetting,
   AiOutlineLogout,
 } from "react-icons/ai";
 
-// We will also need these icons for the wallet and transaction items
-// (Assuming you have react-icons/hi installed as well, not just hi2)
-// If not, I will use the closest from your list.
-// --- Using only the icons you provided: ---
 
 export const menuItems = [
   {
@@ -42,7 +29,7 @@ export const menuItems = [
   {
     title: "KYC Verify",
     icon: AiOutlineCheckCircle, // Using 'CheckCircle' for verify
-    link: "kyc-verify",
+    link: "kycverify",
   },
   {
     title: "Commission Config",
