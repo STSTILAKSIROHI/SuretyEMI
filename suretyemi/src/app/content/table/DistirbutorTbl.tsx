@@ -30,6 +30,7 @@ interface OrgTableProps {
 
 const DistirbutorTbl: React.FC<OrgTableProps> = ({ data, columns, setDetails }) => {
     const [selectData, setSelectData] = useState<(string | number)[]>([]);
+    console.log(selectData)
     const navigate = useNavigate();
 
     return (
@@ -44,6 +45,7 @@ const DistirbutorTbl: React.FC<OrgTableProps> = ({ data, columns, setDetails }) 
                 isSearchBar={true}
                 checkbox={false} // Enable checkboxes
                 hr={true}
+                rowClick={() => navigate('/distributor/details')}
                 selectData={selectData as any}
                 setSelectData={setSelectData as any}
                 tableBtn={

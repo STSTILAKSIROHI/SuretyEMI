@@ -4,6 +4,7 @@ import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
 import "./Datatable.css";
 import SearchBar from "./SearchBar";
 import Pagination from "./Pagination";
+import Checkbox from "../checkBox/Checkbox";
 
 // 1. Define the type for a single column
 type ColumnDef<T> = {
@@ -12,10 +13,6 @@ type ColumnDef<T> = {
   sorting?: boolean;
   align?: "left" | "right" | "center";
 };
-
-// 2. Define the types for the component's props using a generic
-// <T> will represent the shape of a single row object (e.g., { id: 1, name: "Test" })
-// We constrain T to require an 'id' property
 type DatatableProps<T extends { id: any }> = {
   data: T[];
   columns: ColumnDef<T>[];
@@ -210,12 +207,13 @@ export const Datatable = <T extends { id: any }>({
                         whiteSpace: "nowrap",
                         zIndex: "2",
                       }}
+
                     >
                       <div className="d-flex justify-content-center ms-1">
-                        {/* <Checkbox
+                        <Checkbox
                           checked={sortedData.length > 0 && selectData?.length === sortedData.length}
                           onChange={handleSelectAllClick} // Pass the typed handler
-                        /> */}
+                        />
                       </div>
                     </th>
                   )}
@@ -284,15 +282,15 @@ export const Datatable = <T extends { id: any }>({
                   currentItems.map((row, rowIndex) => {
                     const isItemSelected = isSelected(row.id);
                     return (
-                      <tr key={row.id || rowIndex} style={{ cursor: "pointer" }}>
+                      <tr key={row.id || rowIndex} style={{ cursor: "pointer" }} >
                         {checkbox && (
                           <td className="p-2">
                             <div className="d-flex justify-content-center ms-1">
-                              {/* <Checkbox
+                              <Checkbox
                                 checked={isItemSelected}
                                 value={isItemSelected}
                                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleClick(event, row.id)}
-                              /> */}
+                              />
                             </div>
                           </td>
                         )}
@@ -308,7 +306,7 @@ export const Datatable = <T extends { id: any }>({
                               // 10. Use a stable key
                               key={column.field as string}
                               className="p-2 text-sm"
-                              onClick={() => rowClick?.(row)}
+                              onDoubleClick={() => rowClick?.(row)}
                               style={{ textAlign: column.align || "left" }}
                             >
                               {children

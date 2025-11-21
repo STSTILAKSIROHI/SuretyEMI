@@ -97,14 +97,12 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       onClick={onClick}
       {...rest}
     >
-      {/* Render icon as React component or node */}
-      {/* {typeof icon === "function" ? (
+      {typeof icon === "function" ? (
         React.createElement(icon, { size: 15, className: "" })
       ) : (
         icon
-      )} */}
+      )}
 
-      {/* Render text label with optional dot */}
       {text && (
         <>
           <span className={dot}></span>

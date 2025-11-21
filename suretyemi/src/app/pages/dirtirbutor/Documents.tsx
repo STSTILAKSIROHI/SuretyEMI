@@ -13,7 +13,6 @@ interface Props {
 }
 
 const Documents: React.FC<Props> = ({ values, setFieldValue }) => {
-    // const [isCropper, setCropper] = useState<boolean>(false);
     return (
         <>
             <Row className="p-3" >
@@ -21,9 +20,12 @@ const Documents: React.FC<Props> = ({ values, setFieldValue }) => {
                 <Col sm={9}>
                     <fieldset className="border rounded-3 p-3">
                         <legend className="float-none w-auto px-2 gap-3 text-primary mb-0 text-md fw-semibold">
-                            <span className="heading-icon">  <CgFileDocument className="text-primary" size={20} /> </span> Enter the Distributor Document Image
+                            <span className="heading-icon">
+                                <CgFileDocument className="text-primary" size={20} />
+                            </span>
+                            Enter the Distributor Document Image
                         </legend>
-                        <Row className="g-3">
+                        <Row className="gap-4">
 
                             {/* Aadhaar Section */}
                             <Col md={5}>
@@ -32,7 +34,7 @@ const Documents: React.FC<Props> = ({ values, setFieldValue }) => {
                                         <CgFileDocument className="text-primary" /> Aadhaar Card
                                     </Card.Title>
 
-                                    <Row className="g-3">
+                                    <Row className="g-3 ">
                                         <Col md={6}>
                                             <Card className="p-3 border-dashed">
                                                 <DragableFileSection

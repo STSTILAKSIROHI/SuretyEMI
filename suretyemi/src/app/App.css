@@ -419,3 +419,37 @@ input::placeholder {
 .hover-card:hover .card-overlay {
   opacity: 1;
 }
+
+.hover-scale:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+.hover-scale {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
+}
+
+
+.card-gradient-blue {
+  background: linear-gradient(to left, #e0f0ff 0%, #ffffff 100%);
+}
+
+.card-gradient-green {
+  background: linear-gradient(to left, #e6fff2 0%, #ffffff 100%);
+}
+
+.card-gradient-purple {
+  background: linear-gradient(to left, #f3e8ff 0%, #ffffff 100%);
+}
+
+.card-gradient-pink {
+  background: linear-gradient(to left, #ffead6 0%, #ffffff 100%);
+}
+
+.card-gradient-blueMdl {
+  background: linear-gradient(to top, #eaf4fd 0%, #ffffff 100%);
+}
+
+.card-gradient-blue-line {
+  background: linear-gradient(to right, #e4e9ff9f 0%, #ffffff 100%);
+}

@@ -1,5 +1,7 @@
 import { DistributorDtlData } from "../../types/type";
-
+import { SiVirustotal } from "react-icons/si";
+import { BsCreditCard2Back, BsExclamationTriangle } from "react-icons/bs";
+import { HiOutlineBanknotes } from "react-icons/hi2";
 
 export const dirtirbutorcolumns = [
     {
@@ -741,3 +743,1152 @@ export const data: DistributorDtlData =
     CreatedDate: ""
 }
 
+export const sellerdata = [
+    {
+        id: 1,
+        title: "Total Sellers",
+        amount: "30,000",
+        icon: <SiVirustotal size={24} />,
+        trend: "+5%",
+        trendUp: true,
+        desc: "New sellers this month",
+        color: "primary",
+        bg: "#eef2ff",
+        text: "#4338ca"
+    },
+    {
+        id: 2,
+        title: "Total EMI",
+        amount: "12,500",
+        icon: <BsCreditCard2Back size={24} />,
+        trend: "+12%",
+        trendUp: true,
+        desc: "EMI processed",
+        color: "info",
+        bg: "#ecfeff",
+        text: "#0891b2"
+    },
+    {
+        id: 3,
+        title: "Total Earn",
+        amount: "4,50,000",
+        icon: <HiOutlineBanknotes size={24} />,
+        trend: "+8.2%",
+        trendUp: true,
+        desc: "Revenue generated",
+        color: "success",
+        bg: "#f0fdf4",
+        text: "#15803d"
+    },
+    {
+        id: 4,
+        title: "Total Penalty",
+        amount: "1,200",
+        icon: <BsExclamationTriangle size={24} />,
+        trend: "-2.4%",
+        trendUp: false,
+        desc: "Late fees collected",
+        color: "danger",
+        bg: "#fef2f2",
+        text: "#b91c1c"
+    }
+];
+
+
+export const sellerTableData = [
+    {
+        field: "sellerName",
+        header: "Seller Name",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "sellerLicenseNo",
+        header: "Seller License No",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "SellerContactDetails",
+        header: "Seller Contact Details",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "contactdetails",
+        header: "Contact details",
+        sorting: true,
+        width: "20%",
+        align: "left",
+    },
+    {
+
+        field: "address",
+        header: "Address",
+        sorting: true,
+        width: "25%",
+        align: "left",
+    },
+    {
+        field: "kYCVerification",
+        header: "KYC Verification",
+        sorting: true,
+        width: "25%",
+        align: "center",
+    },
+    {
+        field: "status",
+        header: "Status",
+        sorting: true,
+        align: "left",
+    },
+
+    {
+        field: "CreatedDate",
+        header: "Created Date",
+        sorting: true,
+        width: "15%",
+        align: "center",
+    },
+    {
+        field: "actions",
+        header: "Action",
+        sorting: false,
+        width: "25%",
+        align: "center",
+    },
+]
+export const sellerData = [
+    {
+        id: 1,
+        sellerName: "Ramesh Trading Co.",
+        sellerLicenseNo: "LIC-8821-MH",
+        SellerContactDetails: "ramesh.kumar@example.com",
+        contactdetails: "+91 98765 43210",
+        address: "Shop 12, Main Market, Mumbai, MH",
+        kYCVerification: "Verified",
+        status: "Active",
+        CreatedDate: "12 Jan, 2024",
+    },
+    {
+        id: 2,
+        sellerName: "Green Harvest Organics",
+        sellerLicenseNo: "LIC-3321-KA",
+        SellerContactDetails: "support@greenharvest.com",
+        contactdetails: "+91 91234 56789",
+        address: "Plot 45, Ind. Area, Bangalore, KA",
+        kYCVerification: "Pending",
+        status: "Active",
+        CreatedDate: "15 Jan, 2024",
+    },
+    {
+        id: 3,
+        sellerName: "TechZone Electronics",
+        sellerLicenseNo: "LIC-1002-DL",
+        SellerContactDetails: "sales@techzone.in",
+        contactdetails: "+91 88888 22222",
+        address: "Nehru Place, New Delhi, DL",
+        kYCVerification: "Verified",
+        status: "Active",
+        CreatedDate: "20 Jan, 2024",
+    },
+    {
+        id: 4,
+        sellerName: "Sharma Textiles",
+        sellerLicenseNo: "LIC-5541-RJ",
+        SellerContactDetails: "sharma.textiles@example.com",
+        contactdetails: "+91 99887 77665",
+        address: "Bapu Bazaar, Jaipur, RJ",
+        kYCVerification: "Rejected",
+        status: "Inactive",
+        CreatedDate: "02 Feb, 2024",
+    },
+    {
+        id: 5,
+        sellerName: "Sunrise Supermart",
+        sellerLicenseNo: "LIC-9901-TN",
+        SellerContactDetails: "contact@sunrisemart.com",
+        contactdetails: "+91 77665 54433",
+        address: "Anna Nagar, Chennai, TN",
+        kYCVerification: "Verified",
+        status: "Active",
+        CreatedDate: "05 Feb, 2024",
+    },
+    {
+        id: 6,
+        sellerName: "Patel Brothers",
+        sellerLicenseNo: "LIC-2210-GJ",
+        SellerContactDetails: "info@patelbros.com",
+        contactdetails: "+91 98980 12345",
+        address: "CG Road, Ahmedabad, GJ",
+        kYCVerification: "Verified",
+        status: "Active",
+        CreatedDate: "10 Feb, 2024",
+    },
+    {
+        id: 7,
+        sellerName: "Urban Decor",
+        sellerLicenseNo: "LIC-7732-UP",
+        SellerContactDetails: "support@urbandecor.co",
+        contactdetails: "+91 87654 32109",
+        address: "Hazratganj, Lucknow, UP",
+        kYCVerification: "Pending",
+        status: "Pending",
+        CreatedDate: "18 Feb, 2024",
+    },
+    {
+        id: 8,
+        sellerName: "FitLife Sports",
+        sellerLicenseNo: "LIC-4455-PB",
+        SellerContactDetails: "sales@fitlife.com",
+        contactdetails: "+91 95555 44444",
+        address: "Sector 17, Chandigarh, PB",
+        kYCVerification: "Verified",
+        status: "Active",
+        CreatedDate: "22 Feb, 2024",
+    },
+    {
+        id: 9,
+        sellerName: "Classic Footwear",
+        sellerLicenseNo: "LIC-6677-WB",
+        SellerContactDetails: "classic.foot@example.com",
+        contactdetails: "+91 90001 90001",
+        address: "Park Street, Kolkata, WB",
+        kYCVerification: "Verified",
+        status: "Suspended",
+        CreatedDate: "01 Mar, 2024",
+    },
+    {
+        id: 10,
+        sellerName: "MediCare Pharma",
+        sellerLicenseNo: "LIC-1122-TS",
+        SellerContactDetails: "distributor@medicare.com",
+        contactdetails: "+91 88000 77000",
+        address: "Banjara Hills, Hyderabad, TS",
+        kYCVerification: "Verified",
+        status: "Active",
+        CreatedDate: "05 Mar, 2024",
+    },
+    {
+        id: 11,
+        sellerName: "Singh Logistics",
+        sellerLicenseNo: "LIC-3344-HR",
+        SellerContactDetails: "ops@singhlogistics.com",
+        contactdetails: "+91 99911 22233",
+        address: "Udyog Vihar, Gurgaon, HR",
+        kYCVerification: "Verified",
+        status: "Active",
+        CreatedDate: "12 Mar, 2024",
+    },
+    {
+        id: 12,
+        sellerName: "BlueSky Apparels",
+        sellerLicenseNo: "LIC-5566-KA",
+        SellerContactDetails: "fashion@bluesky.com",
+        contactdetails: "+91 70223 34455",
+        address: "Koramangala, Bangalore, KA",
+        kYCVerification: "Pending",
+        status: "Active",
+        CreatedDate: "15 Mar, 2024",
+    },
+    {
+        id: 13,
+        sellerName: "Home Essentials",
+        sellerLicenseNo: "LIC-8899-MH",
+        SellerContactDetails: "hello@homeessentials.in",
+        contactdetails: "+91 81234 81234",
+        address: "Andheri West, Mumbai, MH",
+        kYCVerification: "Rejected",
+        status: "Blocked",
+        CreatedDate: "20 Mar, 2024",
+    },
+    {
+        id: 14,
+        sellerName: "Agro Fresh",
+        sellerLicenseNo: "LIC-2233-MP",
+        SellerContactDetails: "supplier@agrofresh.com",
+        contactdetails: "+91 94250 11223",
+        address: "Arera Colony, Bhopal, MP",
+        kYCVerification: "Verified",
+        status: "Active",
+        CreatedDate: "25 Mar, 2024",
+    },
+    {
+        id: 15,
+        sellerName: "Global Gadgets",
+        sellerLicenseNo: "LIC-6611-DL",
+        SellerContactDetails: "import@globalgadgets.com",
+        contactdetails: "+91 98100 98100",
+        address: "Karol Bagh, New Delhi, DL",
+        kYCVerification: "Verified",
+        status: "Active",
+        CreatedDate: "02 Apr, 2024",
+    },
+    {
+        id: 16,
+        sellerName: "Kerala Spices",
+        sellerLicenseNo: "LIC-7788-KL",
+        SellerContactDetails: "spices@keralatrade.com",
+        contactdetails: "+91 94477 66554",
+        address: "MG Road, Kochi, KL",
+        kYCVerification: "Verified",
+        status: "Active",
+        CreatedDate: "05 Apr, 2024",
+    },
+    {
+        id: 17,
+        sellerName: "Toy Kingdom",
+        sellerLicenseNo: "LIC-9900-TN",
+        SellerContactDetails: "kids@toykingdom.com",
+        contactdetails: "+91 98400 12345",
+        address: "T. Nagar, Chennai, TN",
+        kYCVerification: "Verified",
+        status: "Active",
+        CreatedDate: "10 Apr, 2024",
+    },
+    {
+        id: 18,
+        sellerName: "Royal Furniture",
+        sellerLicenseNo: "LIC-1234-RJ",
+        SellerContactDetails: "sales@royalfurniture.com",
+        contactdetails: "+91 98290 55555",
+        address: "MI Road, Jaipur, RJ",
+        kYCVerification: "Pending",
+        status: "Pending",
+        CreatedDate: "15 Apr, 2024",
+    },
+    {
+        id: 19,
+        sellerName: "Digital Solutions",
+        sellerLicenseNo: "LIC-4567-UP",
+        SellerContactDetails: "admin@digisolutions.in",
+        contactdetails: "+91 80009 80009",
+        address: "Sector 62, Noida, UP",
+        kYCVerification: "Verified",
+        status: "Active",
+        CreatedDate: "18 Apr, 2024",
+    },
+    {
+        id: 20,
+        sellerName: "Punekar Bakery",
+        sellerLicenseNo: "LIC-8989-MH",
+        SellerContactDetails: "orders@punekarbakery.com",
+        contactdetails: "+91 99220 33445",
+        address: "FC Road, Pune, MH",
+        kYCVerification: "Verified",
+        status: "Active",
+        CreatedDate: "20 Apr, 2024",
+    }
+];
+// --- 1. Table Columns Configuration ---
+export const transactionColumns = [
+    {
+        field: "transactionId",
+        header: "Transaction ID",
+        sorting: true,
+        align: "left",
+        width: "12%"
+    },
+    {
+        field: "transactionDate",
+        header: "Transaction Date",
+        sorting: true,
+        align: "left",
+        width: "18%"
+    },
+    {
+        field: "productName",
+        header: "Product Name",
+        sorting: true,
+        align: "left",
+        width: "15%"
+    },
+    {
+        field: "productPrice",
+        header: "Product Price",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "emiAmount",
+        header: "EMI Amount",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "tenure",
+        header: "Tenure",
+        sorting: true,
+        align: "center",
+    },
+    {
+        field: "emiNumber",
+        header: "EMI Number (Cycle)",
+        sorting: true,
+        align: "center",
+    },
+    {
+        field: "paymentStatus",
+        header: "Payment Status",
+        sorting: true,
+        align: "center",
+    },
+    {
+        field: "actions",
+        header: "Action",
+        sorting: false,
+        width: "15%", // Adjusted slightly to fit buttons
+        align: "center",
+    },
+];
+
+// --- 2. Mock Data (Matching your image) ---
+export const transactionData = [
+    {
+        id: 1,
+        transactionId: "TXN-00125",
+        transactionDate: "07-Nov-2025 10:30 AM",
+        productName: "Samsung Galaxy",
+        productPrice: "15,000",
+        emiAmount: "1,500",
+        tenure: "10",
+        emiNumber: "3/10",
+        paymentStatus: "paid"
+    },
+    {
+        id: 2,
+        transactionId: "TXN-00126",
+        transactionDate: "07-Nov-2025 11:45 AM",
+        productName: "Sony Bravia TV",
+        productPrice: "45,000",
+        emiAmount: "4,500",
+        tenure: "10",
+        emiNumber: "3/10",
+        paymentStatus: "paid"
+    },
+    {
+        id: 3,
+        transactionId: "TXN-00127",
+        transactionDate: "08-Nov-2025 09:15 AM",
+        productName: "Apple iPad Air",
+        productPrice: "50,000",
+        emiAmount: "5,000",
+        tenure: "10",
+        emiNumber: "3/10",
+        paymentStatus: "pending" // Added variety
+    },
+    {
+        id: 4,
+        transactionId: "TXN-00128",
+        transactionDate: "08-Nov-2025 02:30 PM",
+        productName: "Dell Inspiron",
+        productPrice: "60,000",
+        emiAmount: "6,000",
+        tenure: "10",
+        emiNumber: "3/10",
+        paymentStatus: "paid"
+    },
+];
+
+
+
+
+// --- 1. Summary Statistics Data ---
+export const summaryStats = [
+    { label: "Active Plan", value: "Gold" },
+    { label: "Plan Status", value: "Active" },
+    { label: "Next Renewal", value: "2026-11-10" },
+    { label: "Days to Expiry", value: "24 days" },
+    { label: "Total Paid (lifetime):", value: "₹3,20,000" },
+];
+
+// --- 2. Table Columns Configuration ---
+export const PlanLogColumns = [
+    { field: "planId", header: "Plan ID", sorting: true, align: "left" },
+    { field: "eventType", header: "Event Type", sorting: true, align: "left" },
+    { field: "planName", header: "Plan Name", sorting: true, align: "left", width: "20%" },
+    { field: "amount", header: "Amount (₹)", sorting: true, align: "left" },
+    { field: "paymentMode", header: "Payment Mode", sorting: true, align: "left" },
+    { field: "status", header: "Status", sorting: true, align: "center" },
+    { field: "renewalDate", header: "Renewal Date", sorting: true, align: "left" },
+    { field: "graceDays", header: "Grace Days Left", sorting: true, align: "left" },
+    { field: "action", header: "Action", sorting: false, align: "center" },
+];
+
+// --- 3. Mock Data ---
+export const PlanLog = Array(6).fill({
+    id: 1,
+    planId: "PLAN-001",
+    eventType: "Purchase", // We will override this in map for variety if needed
+    planName: "Name of plan involved",
+    amount: "1,0000",
+    paymentMode: "Bank Transfer",
+    status: "Successful",
+    renewalDate: "07-Nov-2025",
+    graceDays: "5 day"
+}).map((item, index) => ({
+    ...item,
+    id: index,
+    eventType: index === 0 ? "Purchase" : index === 1 ? "Renewal" : index === 2 ? "Upgrade" : "Cancel",
+    amount: index === 0 ? "1,0000" : index === 1 ? "2,0000" : "3,0000",
+    paymentMode: index === 0 ? "Bank Transfer" : index === 1 ? "Card" : "Wallet"
+}));
+
+
+
+
+
+// --- 2. Chart Data ---
+export const financeData = [
+    {
+        name: 'Jan',
+        value: 4000
+    },
+    {
+        name: 'Feb',
+        value: 6000
+    },
+    {
+        name: 'Mar',
+        value: 4500
+    },
+    {
+        name: 'Apr',
+        value: 5500
+    },
+    {
+        name: 'May',
+        value: 3000
+    },
+    {
+        name: 'Jun',
+        value: 4000
+    },
+    {
+        name: 'Jul',
+        value: 3500
+    },
+    {
+        name: 'Aug',
+        value: 4500
+    },
+    {
+        name: 'Sep',
+        value: 5500
+    },
+    {
+        name: 'Okt',
+        value: 5000
+    },
+    {
+        name: 'Nov',
+        value: 4000
+    },
+    {
+        name: 'Dec',
+        value: 3000
+    },
+];
+
+export const pieData = [
+    {
+        name: 'Failed EMI',
+        value: 30, color: '#5e5ce6'
+    },
+    {
+        name: 'Successful EMI',
+        value: 70, color: '#ff9f43'
+    },
+];
+
+// --- 3. Table Data & Config ---
+export const columns = [
+    {
+        field: "transactionId",
+        header: "Transaction ID",
+        sorting: true
+    },
+    {
+        field: "customerInfo",
+        header: "Customer Info",
+        sorting: true
+    },
+    {
+        field: "phoneModel",
+        header: "Phone Model",
+        sorting: true
+    },
+    {
+        field: "tenure",
+        header: "Tenure",
+        sorting: true
+    },
+    {
+        field: "loanId",
+        header: "Loan ID",
+        sorting: true
+    },
+    {
+        field: "amount",
+        header: "Amount",
+        sorting: true
+    },
+    {
+        field: "emiAmount",
+        header: "EMI Amount",
+        sorting: true
+    },
+    {
+        field: "status",
+        header: "Status",
+        width: "15%",
+        sorting: "center"
+    },
+    {
+        field: "startDateTime",
+        header: "Start date Time",
+        sorting: true,
+        width: "15%",
+        align: "center",
+
+    },
+    {
+        field: "action",
+        header: "Action",
+        sorting: false,
+        align: 'center'
+    },
+];
+
+export const tableData = [
+    {
+        id: 1,
+        transactionId: "BLN-IND-2025-123456",
+        name: "PraveenSuthar",
+        phone: "+919876543210",
+        phoneModel: "Apple iPhone 15",
+        tenure: "monthly",
+        loanId: "BLN-IND-2025-",
+        amount: "30000",
+        emiAmount: "10023",
+        status: "Running",
+        startDateTime: "12-06-2025"
+    },
+    {
+        id: 2,
+        transactionId: "BLN-IND-2025-123456",
+        name: "PraveenSuthar",
+        phone: "+919876543210",
+        phoneModel: "Apple iPhone 15",
+        tenure: "monthly",
+        loanId: "BLN-IND-2025-",
+        amount: "30000",
+        emiAmount: "10023",
+        status: "Running",
+        startDateTime: "12-06-2025"
+    },
+    {
+        id: 3,
+        transactionId: "BLN-IND-2025-123456",
+        name: "PraveenSuthar",
+        phone: "+919876543210",
+        phoneModel: "Apple iPhone 15",
+        tenure: "monthly",
+        loanId: "BLN-IND-2025-",
+        amount: "30000",
+        emiAmount: "10023",
+        status: "Running",
+        startDateTime: "12-06-2025"
+    },
+];
+
+
+export const InstSchedcolumns = [
+    {
+        field: "dueDate",
+        header: "Due Date",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "eMIAmount",
+        header: "EMI Amount",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "principalPortion",
+        header: "Principal Portion",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "interestPortion",
+        header: "Interest Portion",
+        sorting: true,
+        width: "20%",
+        align: "left",
+    },
+    {
+
+        field: "penalty",
+        header: "Penalty",
+        sorting: true,
+        width: "25%",
+        align: "left",
+    },
+    {
+        field: "paidAmount",
+        header: "Paid Amount",
+        sorting: true,
+        width: "25%",
+        align: "center",
+    },
+    {
+        field: "status",
+        header: "Status",
+        sorting: true,
+        align: "center",
+    },
+
+    {
+        field: "paidDate",
+        header: "Paid Date",
+        sorting: true,
+        width: "15%",
+        align: "center",
+    },
+    //     {
+    //         field: "actions",
+    //         header: "Action",
+    //         sorting: false,
+    //         width: "25%",
+    //         align: "center",
+    //     },
+];
+
+export const instSchedData = [
+    {
+        id: 1,
+        dueDate: "05-Jan-2025",
+        eMIAmount: "₹ 12,500",
+        principalPortion: "₹ 10,000",
+        interestPortion: "₹ 2,500",
+        penalty: "₹ 0",
+        paidAmount: "₹ 12,500",
+        status: "Paid",
+        paidDate: "05-Jan-2025",
+    },
+    {
+        id: 2,
+        dueDate: "05-Feb-2025",
+        eMIAmount: "₹ 12,450",
+        principalPortion: "₹ 10,050",
+        interestPortion: "₹ 2,400",
+        penalty: "₹ 0",
+        paidAmount: "₹ 12,450",
+        status: "Paid",
+        paidDate: "04-Feb-2025",
+    },
+    {
+        id: 3,
+        dueDate: "05-Mar-2025",
+        eMIAmount: "₹ 12,400",
+        principalPortion: "₹ 10,100",
+        interestPortion: "₹ 2,300",
+        penalty: "₹ 500",
+        paidAmount: "₹ 12,900",
+        status: "Late Paid",
+        paidDate: "10-Mar-2025",
+    },
+    {
+        id: 4,
+        dueDate: "05-Apr-2025",
+        eMIAmount: "₹ 12,350",
+        principalPortion: "₹ 10,150",
+        interestPortion: "₹ 2,200",
+        penalty: "₹ 0",
+        paidAmount: "₹ 12,350",
+        status: "Paid",
+        paidDate: "05-Apr-2025",
+    },
+    {
+        id: 5,
+        dueDate: "05-May-2025",
+        eMIAmount: "₹ 12,300",
+        principalPortion: "₹ 10,200",
+        interestPortion: "₹ 2,100",
+        penalty: "₹ 250",
+        paidAmount: "₹ 12,550",
+        status: "Paid",
+        paidDate: "06-May-2025",
+    },
+    {
+        id: 6,
+        dueDate: "05-Jun-2025",
+        eMIAmount: "₹ 12,250",
+        principalPortion: "₹ 10,250",
+        interestPortion: "₹ 2,000",
+        penalty: "₹ 500",
+        paidAmount: "₹ 0",
+        status: "Overdue",
+        paidDate: "-",
+    },
+    {
+        id: 7,
+        dueDate: "05-Jul-2025",
+        eMIAmount: "₹ 12,200",
+        principalPortion: "₹ 10,300",
+        interestPortion: "₹ 1,900",
+        penalty: "₹ 0",
+        paidAmount: "₹ 0",
+        status: "Pending",
+        paidDate: "-",
+    },
+    {
+        id: 8,
+        dueDate: "05-Aug-2025",
+        eMIAmount: "₹ 12,150",
+        principalPortion: "₹ 10,350",
+        interestPortion: "₹ 1,800",
+        penalty: "₹ 0",
+        paidAmount: "₹ 0",
+        status: "Pending",
+        paidDate: "-",
+    },
+    {
+        id: 9,
+        dueDate: "05-Sep-2025",
+        eMIAmount: "₹ 12,100",
+        principalPortion: "₹ 10,400",
+        interestPortion: "₹ 1,700",
+        penalty: "₹ 0",
+        paidAmount: "₹ 0",
+        status: "Pending",
+        paidDate: "-",
+    },
+    {
+        id: 10,
+        dueDate: "05-Oct-2025",
+        eMIAmount: "₹ 12,050",
+        principalPortion: "₹ 10,450",
+        interestPortion: "₹ 1,600",
+        penalty: "₹ 0",
+        paidAmount: "₹ 0",
+        status: "Pending",
+        paidDate: "-",
+    }
+];
+
+
+
+
+export const MandateInfoCol = [
+    {
+        field: "mandateID",
+        header: "Mandate ID",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "mandateType",
+        header: "Mandate Type",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "mandateStatus",
+        header: "Mandate Status",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "mandateVendor",
+        header: "Mandate Vendor",
+        sorting: true,
+        width: "20%",
+        align: "left",
+    },
+    {
+
+        field: "startDate",
+        header: "Start Date",
+        sorting: true,
+        width: "25%",
+        align: "left",
+    },
+    {
+        field: "endDate",
+        header: "End Date",
+        sorting: true,
+        width: "25%",
+        align: "center",
+    },
+    {
+        field: "maxDebit",
+        header: "Max Debit",
+        sorting: true,
+        width: "25%",
+        align: "center",
+    },
+    {
+        field: "status",
+        header: "Status",
+        sorting: true,
+        align: "center",
+    },
+];
+
+export const mandateData = [
+    {
+        id: 1,
+        mandateID: "MND-2025-001",
+        mandateType: "E-NACH",
+        mandateStatus: "Registered",
+        mandateVendor: "Razorpay",
+        startDate: "01-Jan-2025",
+        endDate: "31-Dec-2030",
+        maxDebit: "₹ 50,000",
+        status: "Active",
+    },
+    {
+        id: 2,
+        mandateID: "MND-2025-002",
+        mandateType: "Physical NACH",
+        mandateStatus: "Registered",
+        mandateVendor: "PayU",
+        startDate: "15-Jan-2025",
+        endDate: "15-Jan-2030",
+        maxDebit: "₹ 1,00,000",
+        status: "Active",
+    },
+    {
+        id: 3,
+        mandateID: "MND-2025-003",
+        mandateType: "UPI Mandate",
+        mandateStatus: "Pending",
+        mandateVendor: "BillDesk",
+        startDate: "20-Feb-2025",
+        endDate: "20-Feb-2026",
+        maxDebit: "₹ 15,000",
+        status: "Pending",
+    },
+    {
+        id: 4,
+        mandateID: "MND-2025-004",
+        mandateType: "E-Mandate",
+        mandateStatus: "Failed",
+        mandateVendor: "Razorpay",
+        startDate: "05-Mar-2025",
+        endDate: "-",
+        maxDebit: "₹ 25,000",
+        status: "Inactive",
+    },
+    {
+        id: 5,
+        mandateID: "MND-2025-005",
+        mandateType: "Aadhaar E-Sign",
+        mandateStatus: "Registered",
+        mandateVendor: "Digio",
+        startDate: "10-Mar-2025",
+        endDate: "10-Mar-2035",
+        maxDebit: "₹ 2,00,000",
+        status: "Active",
+    },
+    {
+        id: 6,
+        mandateID: "MND-2025-006",
+        mandateType: "UPI Mandate",
+        mandateStatus: "Revoked",
+        mandateVendor: "PhonePe",
+        startDate: "01-Apr-2025",
+        endDate: "01-Jun-2025",
+        maxDebit: "₹ 5,000",
+        status: "Inactive",
+    },
+    {
+        id: 7,
+        mandateID: "MND-2025-007",
+        mandateType: "E-NACH",
+        mandateStatus: "Registered",
+        mandateVendor: "Cashfree",
+        startDate: "12-Apr-2025",
+        endDate: "12-Apr-2030",
+        maxDebit: "₹ 60,000",
+        status: "Active",
+    },
+    {
+        id: 8,
+        mandateID: "MND-2025-008",
+        mandateType: "Physical NACH",
+        mandateStatus: "Processing",
+        mandateVendor: "Paytm",
+        startDate: "25-Apr-2025",
+        endDate: "-",
+        maxDebit: "₹ 40,000",
+        status: "Pending",
+    },
+];
+
+export const customebankinfo = [
+    { label: "Bank Name", value: "SBI Bank" },
+    { label: "Account Holder", value: "Rajesh Sharma" },
+    { label: "Account Number", value: "***********4321" },
+    { label: "IFSC", value: "SBIN002233" },
+    { label: "Account Type", value: "Savings" },
+]
+
+
+
+export const CollectionLogCol = [
+    {
+        field: "txnID",
+        header: "Txn ID",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "dateTime",
+        header: "Date Time",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "type",
+        header: "Type",
+        sorting: true,
+        align: "left",
+    },
+    {
+        field: "amount",
+        header: "Amount",
+        sorting: true,
+        width: "20%",
+        align: "left",
+    },
+    {
+
+        field: "refId",
+        header: "RefId",
+        sorting: true,
+        width: "25%",
+        align: "left",
+    },
+    {
+        field: "inst",
+        header: "Installment",
+        sorting: true,
+        width: "25%",
+        align: "center",
+    },
+    {
+        field: "status",
+        header: "Status",
+        sorting: true,
+        align: "center",
+    },
+];
+
+
+export const collectionLogData = [
+    {
+        id: 1,
+        txnID: "TXN-998877",
+        dateTime: "15-Jan-2025 10:30 AM",
+        type: "Credit Card",
+        amount: "₹ 12,500",
+        refId: "REF-CC-102938",
+        inst: "1/12",
+        status: "Success",
+    },
+    {
+        id: 2,
+        txnID: "TXN-998878",
+        dateTime: "15-Feb-2025 11:15 AM",
+        type: "UPI",
+        amount: "₹ 12,500",
+        refId: "REF-UPI-203948",
+        inst: "2/12",
+        status: "Success",
+    },
+    {
+        id: 3,
+        txnID: "TXN-998879",
+        dateTime: "15-Mar-2025 09:45 AM",
+        type: "Net Banking",
+        amount: "₹ 12,500",
+        refId: "REF-NB-304957",
+        inst: "3/12",
+        status: "Failed",
+    },
+    {
+        id: 4,
+        txnID: "TXN-998880",
+        dateTime: "16-Mar-2025 02:20 PM",
+        type: "UPI",
+        amount: "₹ 12,500",
+        refId: "REF-UPI-405966",
+        inst: "3/12",
+        status: "Success",
+    },
+    {
+        id: 5,
+        txnID: "TXN-998881",
+        dateTime: "15-Apr-2025 10:00 AM",
+        type: "Debit Card",
+        amount: "₹ 12,500",
+        refId: "REF-DC-506975",
+        inst: "4/12",
+        status: "Success",
+    },
+    {
+        id: 6,
+        txnID: "TXN-998882",
+        dateTime: "15-May-2025 04:30 PM",
+        type: "Cash",
+        amount: "₹ 12,500",
+        refId: "REF-CS-607984",
+        inst: "5/12",
+        status: "Success",
+    },
+    {
+        id: 7,
+        txnID: "TXN-998883",
+        dateTime: "15-Jun-2025 12:10 PM",
+        type: "UPI",
+        amount: "₹ 12,500",
+        refId: "REF-UPI-708993",
+        inst: "6/12",
+        status: "Pending",
+    },
+    {
+        id: 8,
+        txnID: "TXN-998884",
+        dateTime: "15-Jul-2025 01:55 PM",
+        type: "Wallet",
+        amount: "₹ 12,500",
+        refId: "REF-WL-809002",
+        inst: "7/12",
+        status: "Success",
+    },
+    {
+        id: 9,
+        txnID: "TXN-998885",
+        dateTime: "15-Aug-2025 03:40 PM",
+        type: "Auto-Debit",
+        amount: "₹ 12,500",
+        refId: "REF-AD-901011",
+        inst: "8/12",
+        status: "Success",
+    },
+    {
+        id: 10,
+        txnID: "TXN-998886",
+        dateTime: "15-Sep-2025 11:25 AM",
+        type: "UPI",
+        amount: "₹ 12,500",
+        refId: "REF-UPI-012122",
+        inst: "9/12",
+        status: "Success",
+    },
+];

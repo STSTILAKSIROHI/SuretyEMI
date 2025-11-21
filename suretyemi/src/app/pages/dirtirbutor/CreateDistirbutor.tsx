@@ -23,7 +23,7 @@ const CreateDistirbutor = () => {
     const [currentStep, setCurrentStep] = useState(0);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    const schemaArray = [personalInfoSchema, businessDetailsSchema, documentsSchema, otherDetailsSchema, commissionCostSchema];
+    // const schemaArray = [personalInfoSchema, businessDetailsSchema, documentsSchema, otherDetailsSchema, commissionCostSchema];
     const handleNext = () => setCurrentStep((prev) => prev + 1); //  steps next 
     const handlePrev = () => setCurrentStep((prev) => (prev > 0 ? prev - 1 : 0)); // step backs
     return (
@@ -83,7 +83,7 @@ const CreateDistirbutor = () => {
                         isPlanSelected: false,
                         otp: ''
                     }}
-                    validationSchema={schemaArray[currentStep]}
+                    // validationSchema={schemaArray[currentStep]}
                     onSubmit={(values, action) => {
                         handleNext();
                         action.setTouched({});

@@ -9,6 +9,8 @@ import Dashboard from './pages/dashboard/Dashboard';
 import Distirbutor from './pages/dirtirbutor/Distirbutor';
 import CreateDistirbutor from './pages/dirtirbutor/CreateDistirbutor';
 import KycVerify from './pages/KycVerify/KycVerify';
+import DistirbutorDetails from './pages/dirtirbutor/distirbutorDetails/DistirbutorDetails';
+import SellerDashboard from './pages/dirtirbutor/distirbutorDetails/SellerDashboard';
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +24,8 @@ function App() {
           <Route path="/distributor" element={<Distirbutor />} />
           <Route path='/distributor/create' element={<CreateDistirbutor />} />
           <Route path='/kycverify' element={<KycVerify />} />
+          <Route path='/distributor/details' element={<DistirbutorDetails />} />
+          <Route path='/distributor/details/sellerdashboard' element={<SellerDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

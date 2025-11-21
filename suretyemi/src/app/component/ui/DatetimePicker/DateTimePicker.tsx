@@ -11,11 +11,11 @@ import "flatpickr/dist/themes/material_blue.css"; // Choose theme
 
 type Props = {
     label?: string;
-    value: any | null;
-    onChange: (date: Date | null) => void;
+    value?: any | null;
+    onChange?: (date: Date | null) => void;
     date?: boolean; // show date picker
     time?: boolean; // show time picker
-    required: boolean;
+    required?: boolean;
     placeholder?: string;
     name?: string;
     height?: string;
@@ -60,13 +60,13 @@ export default function CustomDateTimePicker({
                 onChange={
                     date
                         ? (selectedDates: any) =>
-                            onChange(selectedDates.length > 0 ? selectedDates[0] : null)
+                            onChange && onChange(selectedDates.length > 0 ? selectedDates[0] : null)
                         : undefined
                 }
                 onClose={
                     time && !date
                         ? (selectedDates: any) =>
-                            onChange(selectedDates.length > 0 ? selectedDates[0] : null)
+                            onChange && onChange(selectedDates.length > 0 ? selectedDates[0] : null)
                         : undefined
                 }
                 placeholder={placeholder}

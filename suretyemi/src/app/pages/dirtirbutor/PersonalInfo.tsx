@@ -55,6 +55,11 @@ const PersonalInfo: React.FC<Props> = ({ values, setFieldValue }) => {
                                                 <Image src={person} fluid alt="avatar" />
                                         }
                                     </div>
+                                    <ErrorMessage
+                                        name="profilePicture"
+                                        component="div"
+                                        className="text-danger text-sm"
+                                    />
                                 </div>
                             </Col>
                             <Col md={10} sm={12}>

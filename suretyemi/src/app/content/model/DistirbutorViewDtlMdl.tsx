@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Button, Card, Col, Image, Offcanvas, Row, Tab, Tabs } from 'react-bootstrap';
+import { Card, Col, Image, Offcanvas, Row, Tab, Tabs } from 'react-bootstrap';
 import person from '../../assests/Ellipse 62.png';
-import { IoPerson, IoTimeOutline } from 'react-icons/io5';
+import { IoTimeOutline } from 'react-icons/io5';
 import { data } from '../../api/api';
 import CustomButton from '../../component/ui/customButton/CustomButton';
 import { FcBusinessman, FcPlanner, FcViewDetails } from "react-icons/fc";
